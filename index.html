@@ -1083,14 +1083,13 @@
     </script>
     <!-- Glide.js JS -->
 <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
-    <script>
+<script>
   document.addEventListener('DOMContentLoaded', function() {
     const glide = new Glide('#servicesGlide', {
       type: 'carousel',
-      perView: 3, // Show 3 cards at a time
+      perView: 3,
       gap: 50,
       focusAt: 'center',
-      hoverpause: true,
       animationDuration: 700,
       rewind: false,
       bound: false,
@@ -1102,25 +1101,40 @@
 
     glide.mount();
 
-    let direction = 1; // 1 for forward, -1 for backward
+    let direction = 1;
+    let intervalId;
+    const glideEl = document.getElementById('servicesGlide');
 
-    setInterval(() => {
-      const currentIndex = glide.index;
-      const slidesCount = glide._c.Html.slides.length;
-      const maxIndex = slidesCount - glide.settings.perView;
+    function startAuto() {
+      if (intervalId) return;
+      intervalId = setInterval(() => {
+        const currentIndex = glide.index;
+        const slidesCount = glide._c.Html.slides.length;
+        const maxIndex = slidesCount - glide.settings.perView;
 
-      if (direction === 1 && currentIndex > maxIndex) {
-        direction = -1;
-        glide.go('<');
-      } else if (direction === -1 && currentIndex <= 0) {
-        direction = 1;
-        glide.go('>');
-      } else if (direction === 1) {
-        glide.go('>');
-      } else {
-        glide.go('<');
-      }
-    }, 2000); // Change slide every 4 seconds
+        if (direction === 1 && currentIndex > maxIndex) {
+          direction = -1;
+          glide.go('<');
+        } else if (direction === -1 && currentIndex <= 0) {
+          direction = 1;
+          glide.go('>');
+        } else if (direction === 1) {
+          glide.go('>');
+        } else {
+          glide.go('<');
+        }
+      }, 2000);
+    }
+
+    function stopAuto() {
+      clearInterval(intervalId);
+      intervalId = null;
+    }
+
+    glideEl.addEventListener('mouseenter', stopAuto);
+    glideEl.addEventListener('mouseleave', startAuto);
+
+    startAuto();
   });
 </script>
 
