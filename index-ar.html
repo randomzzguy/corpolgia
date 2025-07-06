@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كوربولجيا - التميز في الحوكمة المؤسسية والامتثال</title>
+    <meta name="description" content="الريادة في استشارات الحوكمة المؤسسية، الامتثال لمعايير ISO، وحلول إدارة الأصول لقطاعات الصحة والطاقة والذكاء الاصطناعي في الإمارات والعالم.">
+    <meta name="keywords" content="استشارات الحوكمة المؤسسية، الامتثال ISO الإمارات، استشارات GDPR، إدارة الأصول، الامتثال الصحي، حوكمة قطاع الطاقة">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets11/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets11/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets11/favicon-16x16.png">
+    <link rel="manifest" href="assets11/site.webmanifest">
+    <!-- Glide.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-dark: #2e4254;
+            --primary-darker: #222222;
+            --dark-gold: #ab7518;
+            --soft-beige: #000000;
+            --soft-gray: #f8fafc;
+            --text-gray: #64748b;
+        }
+        * { scroll-behavior: smooth; }
+        body { font-family: 'Open Sans', sans-serif; }
+        .font-heading { font-family: 'Montserrat', sans-serif; }
+        .parallax-bg {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-darker) 100%);
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .service-card { transition: all 0.3s ease; }
+        .service-card:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .btn-primary { background: var(--dark-gold); filter: drop-shadow(0 4px 10px rgba(171, 117, 24, 0.2)); transition: all 0.3s ease; }
+        .btn-primary:hover { transform: translateY(-2px); filter: sepia(0.5) saturate(1.5) brightness(1.2); box-shadow: 0 10px 25px rgb(171, 117, 24, 0.3); }
+        .navbar { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.95); transition: all 0.3s ease; }
+        .navbar.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .team-card { transition: all 0.3s ease; }
+        .team-card:hover { transform: scale(1.05); }
+        .process-step { position: relative; }
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -20px;
+            width: 40px;
+            height: 2px;
+            background: var(--primary-dark);
+            transform: translateY(-50%);
+        }
+        .process-step:last-child::after { display: none; }
+        .chat-widget { position: fixed; bottom: 20px; left: 20px; z-index: 1000; transition: all 0.3s ease; }
+        .chat-widget:hover { transform: scale(1.1); }
+        .language-selector { position: relative; }
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+        .language-selector:hover .language-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .floating { animation: float 3s ease-in-out infinite; }
+        .mobile-menu { transform: translateX(-100%); transition: transform 0.3s ease; }
+        .mobile-menu.open { transform: translateX(0); }
+        @keyframes shimmer-gold {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .gold-shimmer {
+            display: inline-block;
+            background: linear-gradient(90deg, #ab7518 0%, #ffe9a9 20%, #ab7518 40%, #ffe9a9 60%, #ab7518 100%);
+            background-size: 200% 100%;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shimmer-gold 4.5s linear infinite;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Navigation -->
+    <nav class="navbar fixed w-full top-0 z-50 px-4 py-3">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="font-heading font-bold text-2xl text-blue-900">
+                <img src="/corpolgia/assets1/logo.svg" alt="شعار كوربولجيا" class="h-12 inline-block">
+            </div>
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 flex-row-reverse">
+                <a href="#home" class="hover:text-blue-600 transition-colors">الرئيسية</a>
+                <a href="#services" class="hover:text-blue-600 transition-colors">الخدمات</a>
+                <a href="#about" class="hover:text-blue-600 transition-colors">من نحن</a>
+                <a href="#case-studies" class="hover:text-blue-600 transition-colors">قصص النجاح</a>
+                <a href="#blog" class="hover:text-blue-600 transition-colors">المدونة</a>
+                <a href="#contact" class="hover:text-blue-600 transition-colors">تواصل معنا</a>
+            </div>
+            <!-- Language Selector & Login -->
+            <div class="hidden md:flex items-center space-x-4 flex-row-reverse">
+                    <a href="index.html" class="btn-primary text-white px-4 py-2 rounded-lg font-medium">
+                        English
+                    </a>
+                </div>
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden" onclick="toggleMobileMenu()">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu fixed top-0 left-0 h-full w-64 bg-white shadow-lg md:hidden">
+            <div class="p-4">
+                <button onclick="toggleMobileMenu()" class="float-left">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+                <div class="mt-8 space-y-4">
+                    <a href="#home" class="block py-2 hover:text-blue-600">الرئيسية</a>
+                    <a href="#services" class="block py-2 hover:text-blue-600">الخدمات</a>
+                    <a href="#about" class="block py-2 hover:text-blue-600">من نحن</a>
+                    <a href="#case-studies" class="block py-2 hover:text-blue-600">قصص النجاح</a>
+                    <a href="#blog" class="block py-2 hover:text-blue-600">المدونة</a>
+                    <a href="#contact" class="block py-2 hover:text-blue-600">تواصل معنا</a>
+                    <button class="btn-primary text-white px-4 py-2 rounded-lg font-medium w-full mt-4">
+                        خطة مخصصة
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+<section id="home" class="parallax-bg min-h-screen flex items-center text-white relative overflow-hidden">
+    <!-- Overlay for transparency -->
+    <div style="background-color: #2e4254; opacity: 0.85;" class="absolute inset-0 z-10"></div>
+    <!-- Background video -->
+    <video autoplay muted loop playsinline
+        class="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
+        style="opacity: 0.65;">
+        <source src="/corpolgia/assets1/background.mp4" type="video/mp4">
+        متصفحك لا يدعم تشغيل الفيديو.
+    </video>
+    <!-- Hero content -->
+    <div class="max-w-7xl mx-auto px-4 relative z-20">
+        <div class="fade-in">
+            <h1 class="font-heading text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                الحوكمة المؤسسية
+                <span class="block gold-shimmer">التميز</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl opacity-90">
+                تحويل تحديات الامتثال إلى فرص أعمال من خلال الخبرة والنزاهة والابتكار.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <button class="btn-primary px-8 py-4 rounded-lg font-semibold text-lg">
+                    استكشف الخدمات
+                </button>
+                <button class="border-2 border-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-900 transition-all">
+                    أداة اختيار الخدمة
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="absolute bottom-8 right-1/2 transform translate-x-1/2 floating z-20">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-16 fade-in">
+      <h2 class="font-heading text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        خدماتنا
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        حلول شاملة مصممة خصيصًا لأهداف منظمتك وتحدياتها التشغيلية.
+      </p>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto px-4">
+    <div id="servicesGlide" class="glide relative">
+      <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides">
+          <li class="glide__slide">
+            <div class="service-card bg-white rounded-xl p-10 shadow-lg fade-in min-w-0">
+              <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                </div>
+                <h3 class="font-heading text-2xl font-semibold mb-4">الامتثال التنظيمي والاستشارات</h3>
+                <p class="text-gray-600 mb-6">مساعدة المؤسسات على التنقل في البيئات التنظيمية المعقدة مع تعزيز التميز وحماية الأصول الفكرية.</p>
+                <ul class="text-sm text-gray-600 space-y-2">
+                    <li>• تحليل وتفسير القوانين واللوائح الجديدة وتأثيرها على الأعمال.</li>
+                    <li>• إجراء دراسات أثر تنظيمي لتقييم جاهزية المؤسسة.</li>
+                    <li>• تقييم التميز المؤسسي من خلال المقارنات والتدقيقات.</li>
+                    <li>• إدارة وتحسين محافظ الملكية الفكرية بفعالية.</li>
+                </ul>
+            </div>
+          </li>
+          <!-- أكمل بقية البطاقات بنفس النمط -->
+
+          <li class="glide__slide">
+  <div class="service-card bg-white rounded-xl p-8 shadow-lg fade-in min-w-0">
+    <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+      <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+      </svg>
+    </div>
+    <h3 class="font-heading text-2xl font-semibold mb-4">الذكاء الاصطناعي والأمن السيبراني وحوكمة البيانات</h3>
+    <p class="text-gray-600 mb-6">بناء استراتيجيات رقمية موثوقة وأخلاقية وآمنة تتماشى مع المعايير العالمية.</p>
+    <ul class="text-sm text-gray-600 space-y-2">
+      <li>• تطوير استراتيجيات ذكاء اصطناعي مخصصة تتماشى مع أهداف الأعمال.</li>
+      <li>• تصميم أطر وسياسات حوكمة ذكاء اصطناعي أخلاقية.</li>
+      <li>• إجراء تحليلات فجوات الأمن السيبراني لتحديد الثغرات.</li>
+      <li>• تطبيق أطر حوكمة بيانات متوافقة مع ISO 24143.</li>
+    </ul>
+  </div>
+</li>
+<li class="glide__slide">
+  <div class="service-card bg-white rounded-xl p-8 shadow-lg fade-in min-w-0">
+    <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+      <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+      </svg>
+    </div>
+    <h3 class="font-heading text-2xl font-semibold mb-4">حوكمة البيئة والاستدامة</h3>
+    <p class="text-gray-600 mb-6">قيادة المسؤولية البيئية والاستدامة بعوائد اجتماعية قابلة للقياس.</p>
+    <ul class="text-sm text-gray-600 space-y-2">
+      <li>• إجراء تقييمات الأثر البيئي وتدقيقات الامتثال.</li>
+      <li>• تقييم نضج واستدامة الشركات وأدائها.</li>
+      <li>• تقييم المشاريع والمبادرات من خلال العائد الاجتماعي على الاستثمار (S-ROI).</li>
+      <li>• تقديم الاستشارات حول الممارسات والمبادرات الخضراء المستدامة.</li>
+    </ul>
+  </div>
+</li>
+<li class="glide__slide">
+  <div class="service-card bg-white rounded-xl p-8 shadow-lg fade-in min-w-0">
+    <div class="w-16 h-16 bg-yellow-100 rounded-lg flex items-center justify-center mb-6">
+      <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
+    </div>
+    <h3 class="font-heading text-2xl font-semibold mb-4">إدارة الكفاءات والتدريب</h3>
+    <p class="text-gray-600 mb-6">تمكين المؤسسات من خلال تحديد فجوات المهارات وتعزيز قدرات القوى العاملة.</p>
+    <ul class="text-sm text-gray-600 space-y-2">
+      <li>• تحليل احتياجات التدريب وتخطيط التطوير المهني.</li>
+      <li>• تصميم برامج تدريبية متخصصة حسب القطاع.</li>
+      <li>• تقييم فعالية التدريب وقياس العائد على الاستثمار.</li>
+      <li>• بناء أطر إدارة الكفاءات وتطوير القيادات.</li>
+    </ul>
+  </div>
+</li>
+<li class="glide__slide">
+  <div class="service-card bg-white rounded-xl p-8 shadow-lg fade-in min-w-0">
+    <div class="w-16 h-16 bg-red-100 rounded-lg flex items-center justify-center mb-6">
+      <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12c0 4.418-4.03 8-9 8s-9-3.582-9-8 4.03-8 9-8 9 3.582 9 8z"></path>
+      </svg>
+    </div>
+    <h3 class="font-heading text-2xl font-semibold mb-4">معايير ISO واستمرارية الأعمال</h3>
+    <p class="text-gray-600 mb-6">تحقيق الامتثال لمعايير ISO وضمان استمرارية الأعمال في جميع الظروف.</p>
+    <ul class="text-sm text-gray-600 space-y-2">
+      <li>• تنفيذ أنظمة إدارة الجودة والبيئة والصحة والسلامة.</li>
+      <li>• إعداد المؤسسات للحصول على شهادات ISO.</li>
+      <li>• تطوير خطط استمرارية الأعمال وإدارة الأزمات.</li>
+      <li>• مراجعة وتدقيق أنظمة الإدارة بشكل دوري.</li>
+    </ul>
+  </div>
+</li>
+<li class="glide__slide">
+  <div class="service-card bg-white rounded-xl p-8 shadow-lg fade-in min-w-0">
+    <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center mb-6">
+      <svg class="w-8 h-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+      </svg>
+    </div>
+    <h3 class="font-heading text-2xl font-semibold mb-4">الاستشارات الأمنية والتدريب</h3>
+    <p class="text-gray-600 mb-6">تعزيز أمن المعلومات وحماية الأصول من خلال حلول استشارية وتدريبية متقدمة.</p>
+    <ul class="text-sm text-gray-600 space-y-2">
+      <li>• تقييم المخاطر الأمنية وتطوير سياسات الحماية.</li>
+      <li>• تقديم تدريبات توعوية حول الأمن السيبراني.</li>
+      <li>• تنفيذ حلول أمنية متقدمة لحماية البيانات.</li>
+      <li>• مراجعة وتدقيق البنية التحتية الأمنية.</li>
+    </ul>
+  </div>
+</li>
+        </ul>
+      </div>
+      <!-- الأسهم للتنقل -->
+      <div class="glide__arrows absolute inset-y-0 left-0 right-0 flex items-center justify-between pointer-events-none" data-glide-el="controls" style="z-index:2;">
+        <button class="glide__arrow glide__arrow--left pointer-events-auto bg-white shadow rounded-full w-12 h-12 flex items-center justify-center text-2xl hover:bg-gray-100 transition" data-glide-dir="<" aria-label="السابق">
+          &#8592;
+        </button>
+        <button class="glide__arrow glide__arrow--right pointer-events-auto bg-white shadow rounded-full w-12 h-12 flex items-center justify-center text-2xl hover:bg-gray-100 transition" data-glide-dir=">" aria-label="التالي">
+          &#8594;
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- قسم من نحن -->
+<section id="about" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="text-center mb-16 fade-in">
+            <h2 class="font-heading text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                من نحن
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                خبرة، نزاهة، تعاون، ابتكار، واستدامة في خدمة الحوكمة المؤسسية.
+            </p>
+        </div>
+        
+        <!-- المهمة والقيم -->
+        <div class="grid md:grid-cols-2 gap-12 mb-20">
+            <div class="fade-in">
+                <h3 class="font-heading text-3xl font-bold mb-6">رسالتنا</h3>
+                <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                    تحويل الحوكمة المؤسسية والامتثال من عبء تنظيمي إلى ميزة استراتيجية، وتمكين المؤسسات من تحقيق نمو مستدام مع الحفاظ على أعلى معايير النزاهة.
+                </p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div style="background-color: #e7d8bd;" class="text-center p-4 bg-50 rounded-lg">
+                        <div style="color: #ab7518;" class="text-2xl font-bold text-600">50+</div>
+                        <div class="text-sm text-gray-600">مشروع مكتمل</div>
+                    </div>
+                    <div style="background-color: #b5cfe6;" class="text-center p-4 bg-50 rounded-lg">
+                        <div style="color: #2e4254;" class="text-2xl font-bold text-600">15+</div>
+                        <div class="text-sm text-gray-600">قطاع خدمناه</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="fade-in">
+                <h3 class="font-heading text-3xl font-bold mb-6">قيمنا</h3>
+                <div class="space-y-4">
+                    <div class="flex items-start space-x-3 flex-row-reverse">
+                        <div style="background-color: #2e4254;" class="w-6 h-6 bg-600 rounded-full flex-shrink-0 mt-1"></div>
+                        <div>
+                            <h4 class="font-semibold">الخبرة</h4>
+                            <p class="text-gray-600 text-sm">معرفة عميقة وخبرة تقنية متخصصة</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3 flex-row-reverse">
+                        <div style="background-color: #839eb6;" class="w-6 h-6 bg-600 rounded-full flex-shrink-0 mt-1"></div>
+                        <div>
+                            <h4 class="font-semibold">النزاهة</h4>
+                            <p class="text-gray-600 text-sm">التزام راسخ بالممارسات الأخلاقية</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3 flex-row-reverse">
+                        <div style="background-color: #a1a1a1;" class="w-6 h-6 bg-600 rounded-full flex-shrink-0 mt-1"></div>
+                        <div>
+                            <h4 class="font-semibold">التعاون</h4>
+                            <p class="text-gray-600 text-sm">نهج الشراكة مع جميع الأطراف المعنية</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3 flex-row-reverse">
+                        <div style="background-color: #e7c281;" class="w-6 h-6 bg-600 rounded-full flex-shrink-0 mt-1"></div>
+                        <div>
+                            <h4 class="font-semibold">الابتكار</h4>
+                            <p class="text-gray-600 text-sm">حلول متطورة للتحديات المعقدة</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3 flex-row-reverse">
+                        <div style="background-color: #ab7518;" class="w-6 h-6 bg-600 rounded-full flex-shrink-0 mt-1"></div>
+                        <div>
+                            <h4 class="font-semibold">الاستدامة</h4>
+                            <p class="text-gray-600 text-sm">خلق قيمة طويلة الأمد لجميع الأطراف</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- الفريق القيادي -->
+        <div class="fade-in">
+            <h3 class="font-heading text-3xl font-bold text-center mb-12">الفريق القيادي</h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="team-card text-center">
+                    <div class="w-32 h-32 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-2xl font-bold">
+                        RA
+                    </div>
+                    <h4 class="font-heading text-xl font-semibold mb-2">م. راشد الحبسي</h4>
+                    <p class="text-gray-600 mb-4">رئيس الحوكمة</p>
+                    <p class="text-sm text-gray-600">قيادة الرؤية الاستراتيجية والتميز التشغيلي بخبرة تزيد عن 15 عامًا في الهندسة والحوكمة.</p>
+                </div>
+                
+                <div class="team-card text-center">
+                    <div class="w-32 h-32 bg-gradient-to-br from-green-400 to-green-600 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-2xl font-bold">
+                        EM
+                    </div>
+                    <h4 class="font-heading text-xl font-semibold mb-2">د. عفت مصطفى</h4>
+                    <p class="text-gray-600 mb-4">خبيرة التميز المؤسسي</p>
+                    <p class="text-sm text-gray-600">قيادة الابتكار في تقنيات الامتثال وحلول التحول الرقمي عبر القطاعات.</p>
+                </div>
+                
+                <div class="team-card text-center">
+                    <div class="w-32 h-32 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-2xl font-bold">
+                        GL
+                    </div>
+                    <h4 class="font-heading text-xl font-semibold mb-2">د. جيوفاني لومباردو</h4>
+                    <p class="text-gray-600 mb-4">رئيس العائد الاجتماعي</p>
+                    <p class="text-sm text-gray-600">متخصص في أطر الامتثال الدولية وتطوير الأعمال الاستراتيجية.</p>
+                </div>
+                <!-- أضف بقية أعضاء الفريق إذا رغبت -->
+            </div>
+        </div>
+        
+        <!-- الشراكة الاستراتيجية -->
+        <div class="mt-20 text-center fade-in">
+            <h3 class="font-heading text-3xl font-bold mb-8">شراكة استراتيجية</h3>
+            <div class="bg-gray-50 rounded-xl p-8 max-w-2xl mx-auto">
+                <div class="w-16 h-16 bg-blue-600 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                    </svg>
+                </div>
+                <h4 class="font-heading text-2xl font-semibold mb-4">Forte Secur Group Academy</h4>
+                <p class="text-gray-600">
+                    شراكتنا الاستراتيجية مع Forte Secur Group Academy تعزز قدراتنا في التدريب والشهادات المهنية، وتوفر برامج تطوير مهني شاملة لمتخصصي الحوكمة والامتثال.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- قسم قصص النجاح -->
+<section id="case-studies" class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-16 fade-in">
+      <h2 class="font-heading text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        قصص النجاح
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        أمثلة حقيقية على تأثير حلولنا في مختلف القطاعات.
+      </p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-10">
+      <div class="bg-white rounded-xl shadow-lg p-8 fade-in">
+        <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a4 4 0 014-4h3m4 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h3 class="font-heading text-xl font-semibold mb-2">تحول رقمي في قطاع الصحة</h3>
+        <p class="text-gray-600 mb-2">تطبيق حلول حوكمة البيانات والامتثال للمعايير الدولية في مستشفى رائد، مما أدى إلى تحسين جودة الرعاية وسرعة اتخاذ القرار.</p>
+      </div>
+      <div class="bg-white rounded-xl shadow-lg p-8 fade-in">
+        <div class="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12c0 4.418-4.03 8-9 8s-9-3.582-9-8 4.03-8 9-8 9 3.582 9 8z"></path>
+          </svg>
+        </div>
+        <h3 class="font-heading text-xl font-semibold mb-2">الامتثال في قطاع الطاقة</h3>
+        <p class="text-gray-600 mb-2">مساعدة شركة طاقة كبرى في تحقيق الامتثال لمعايير ISO وتطوير خطط استمرارية الأعمال، مما عزز من مرونتها التشغيلية.</p>
+      </div>
+      <div class="bg-white rounded-xl shadow-lg p-8 fade-in">
+        <div class="w-14 h-14 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-7 h-7 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h3 class="font-heading text-xl font-semibold mb-2">تعزيز الأمن السيبراني</h3>
+        <p class="text-gray-600 mb-2">تقييم شامل للبنية التحتية الرقمية وتقديم تدريبات متخصصة، مما أدى إلى رفع مستوى الأمان السيبراني لدى عميل حكومي.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- قسم المدونة -->
+<section id="blog" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-16 fade-in">
+      <h2 class="font-heading text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        المدونة
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        أحدث المقالات والرؤى حول الحوكمة والامتثال والتحول الرقمي.
+      </p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-10">
+      <div class="bg-gray-50 rounded-xl shadow p-8 fade-in">
+        <h3 class="font-heading text-xl font-semibold mb-2">أهمية الامتثال في عصر الذكاء الاصطناعي</h3>
+        <p class="text-gray-600 mb-4">كيف يمكن للمؤسسات الاستفادة من الذكاء الاصطناعي مع الحفاظ على الامتثال للمعايير الأخلاقية والتنظيمية.</p>
+        <a href="#" class="text-blue-600 hover:underline">اقرأ المزيد</a>
+      </div>
+      <div class="bg-gray-50 rounded-xl shadow p-8 fade-in">
+        <h3 class="font-heading text-xl font-semibold mb-2">أفضل الممارسات في إدارة المخاطر السيبرانية</h3>
+        <p class="text-gray-600 mb-4">استراتيجيات فعالة لحماية بياناتك وأصولك الرقمية من التهديدات المتزايدة.</p>
+        <a href="#" class="text-blue-600 hover:underline">اقرأ المزيد</a>
+      </div>
+      <div class="bg-gray-50 rounded-xl shadow p-8 fade-in">
+        <h3 class="font-heading text-xl font-semibold mb-2">الاستدامة المؤسسية: من الامتثال إلى الريادة</h3>
+        <p class="text-gray-600 mb-4">دور الحوكمة في تعزيز الاستدامة وتحقيق قيمة طويلة الأمد للمؤسسات.</p>
+        <a href="#" class="text-blue-600 hover:underline">اقرأ المزيد</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- قسم تواصل معنا -->
+<section id="contact" class="py-20 bg-gray-50">
+  <div class="max-w-4xl mx-auto px-4">
+    <div class="text-center mb-12 fade-in">
+      <h2 class="font-heading text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        تواصل معنا
+      </h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        يسعدنا تواصلك معنا لأي استفسار أو طلب استشارة. فريقنا جاهز لخدمتك.
+      </p>
+    </div>
+    <form class="bg-white rounded-xl shadow-lg p-8 grid gap-6 fade-in" dir="rtl">
+      <div class="grid md:grid-cols-2 gap-6">
+        <input type="text" class="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500" placeholder="الاسم الكامل" required>
+        <input type="email" class="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500" placeholder="البريد الإلكتروني" required>
+      </div>
+      <input type="text" class="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500" placeholder="الموضوع">
+      <textarea class="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:border-blue-500" rows="5" placeholder="رسالتك" required></textarea>
+      <button type="submit" class="btn-primary text-white px-8 py-4 rounded-lg font-semibold text-lg w-full md:w-auto">
+        إرسال
+      </button>
+    </form>
+    <div class="text-center mt-10 text-gray-600 fade-in">
+      <div class="mb-2">
+        <strong>البريد الإلكتروني:</strong> info@corpolgia.com
+      </div>
+      <div>
+        <strong>الهاتف:</strong> +971 50 123 4567
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- الفوتر -->
+<footer class="bg-white border-t mt-20 py-8">
+  <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="text-gray-600 text-center md:text-right">
+      جميع الحقوق محفوظة &copy; كوربولجيا 2025
+    </div>
+    <div class="flex space-x-4 flex-row-reverse">
+      <a href="#" class="text-gray-400 hover:text-blue-600" aria-label="تويتر">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.47.69a4.3 4.3 0 001.88-2.37 8.59 8.59 0 01-2.72 1.04 4.28 4.28 0 00-7.29 3.9A12.13 12.13 0 013 4.89a4.28 4.28 0 001.32 5.71c-.7-.02-1.36-.21-1.94-.53v.05a4.28 4.28 0 003.44 4.19c-.33.09-.68.14-1.04.14-.25 0-.5-.02-.74-.07a4.29 4.29 0 004 2.98A8.6 8.6 0 012 19.54a12.13 12.13 0 006.56 1.92c7.88 0 12.2-6.53 12.2-12.2 0-.19 0-.37-.01-.56A8.72 8.72 0 0024 4.59a8.5 8.5 0 01-2.54.7z"/></svg>
+      </a>
+      <a href="#" class="text-gray-400 hover:text-blue-600" aria-label="لينكدإن">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.88v1.23h.04c.4-.76 1.38-1.56 2.85-1.56 3.05 0 3.62 2.01 3.62 4.62v4.71z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- سكريبتات التفاعل والكاروسيل -->
+<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
+<script>
+  // تفعيل الكاروسيل مع الأسهم والاتجاه
+  document.addEventListener('DOMContentLoaded', function() {
+    const glide = new Glide('#servicesGlide', {
+      type: 'carousel',
+      perView: 3,
+      gap: 50,
+      focusAt: 'center',
+      animationDuration: 700,
+      rewind: false,
+      bound: false,
+      breakpoints: {
+        1024: { perView: 2 },
+        640: { perView: 1 }
+      }
+    });
+    glide.mount();
+
+    // حركة تلقائية مع عكس الاتجاه عند النهاية
+    let direction = 1;
+    let intervalId;
+    const glideEl = document.getElementById('servicesGlide');
+    function startAuto() {
+      if (intervalId) return;
+      intervalId = setInterval(() => {
+        const currentIndex = glide.index;
+        const slidesCount = glide._c.Html.slides.length;
+        const maxIndex = slidesCount - glide.settings.perView;
+        if (direction === 1 && currentIndex >= maxIndex) {
+          direction = -1;
+          glide.go('<');
+        } else if (direction === -1 && currentIndex <= 0) {
+          direction = 1;
+          glide.go('>');
+        } else if (direction === 1) {
+          glide.go('>');
+        } else {
+          glide.go('<');
+        }
+      }, 4000);
+    }
+    function stopAuto() {
+      clearInterval(intervalId);
+      intervalId = null;
+    }
+    glideEl.addEventListener('mouseenter', stopAuto);
+    glideEl.addEventListener('mouseleave', startAuto);
+    startAuto();
+  });
+
+  // تأثير ظهور العناصر عند التمرير
+  document.addEventListener('DOMContentLoaded', function() {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+    // تأثير الشريط العلوي عند التمرير
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+  });
+
+  // قائمة الجوال
+  function toggleMobileMenu() {
+    const mobileMenu = document.querySelector('.mobile-menu');
+    mobileMenu.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
