@@ -32,11 +32,13 @@
         body {
             font-family: 'Open Sans', sans-serif;
             background-image: url('/corpolgia/assets1/bg.png'); /* adjust path as needed */
-            overlay: rgba(73, 73, 73, 0.8); /* optional overlay for better text visibility */
             background-repeat: no-repeat;
             background-position: center center;
             background-attachment: fixed;
             background-size: cover; /* or 'cover' if you want it to fill */
+            position: relative;
+            z-index: 0;
+
         }
         @media (max-width: 768px) {
         body {
@@ -50,7 +52,7 @@
             position: fixed;
             inset: 0;
             z-index: 0;
-            background: rgba(56, 56, 56, 0.7);
+            background: rgba(56, 56, 56, 0.5);
             pointer-events: none;
         }
                 
