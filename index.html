@@ -31,7 +31,7 @@
     
         body {
             font-family: 'Open Sans', sans-serif;
-            background-image: url('/corpolgia/assets1/bg.png'); /* adjust path as needed */
+            background-image: url('/corpolgia/assets1/bg2.png'); /* adjust path as needed */
             background-repeat: no-repeat;
             background-position: center center;
             background-attachment: fixed;
@@ -53,7 +53,7 @@
             inset: 0;
             z-index: 0;
             background: inherit;
-            opacity: 0.7; /* Adjust opacity as needed */
+            opacity: 0.5; /* Adjust opacity as needed */
             pointer-events: none;
         }
                 
@@ -218,6 +218,7 @@
     </style>
 </head>
 <body class="bg-white text-gray-800">
+    <canvas id="particles-bg" style="position:fixed; inset:0; width:100vw; height:100vh; z-index:1; pointer-events:none;"></canvas>
     <!-- Navigation -->
     <nav class="navbar fixed w-full top-0 z-50 px-4 py-3">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
@@ -321,7 +322,7 @@
           </p>
         </div>
       </div>
-      <div class="max-w-8xl mx-auto px-6">
+      <div class="max-w-7xxl mx-auto px-20">
         <div id="servicesGlide" class="glide relative">
           <div class="glide__track" data-glide-el="track">
             <ul class="glide__slides">
@@ -334,7 +335,7 @@
                     </div>
                     <h3 class="font-heading text-2xl font-semibold mb-4">Regulatory Compliance & Advisory</h3>
                     <p class="text-white mb-6">Helping organizations navigate complex regulatory landscapes while enhancing excellence and protecting intellectual assets1.</p>
-                    <ul class="text-sm text-white space-y-2">
+                    <ul class="text-sm text-gray-900 space-y-2">
                         <li>• Analyze and interpret new codes, laws, and regulations for business impact.</li>
                         <li>• Conduct regulatory impact studies to assess organizational readiness.</li>
                         <li>• Evaluate business excellence through benchmarks and performance audits.</li>
@@ -351,7 +352,7 @@
                     </div>
                     <h3 class="font-heading text-2xl font-semibold mb-4">AI, Cybersecurity & Data Governance</h3>
                     <p class="text-white mb-6">Building trusted, ethical, and secure digital strategies aligned with global standards.</p>
-                    <ul class="text-sm text-white space-y-2">
+                    <ul class="text-sm text-gray-900 space-y-2">
                         <li>• Develop tailored AI strategies aligned with business objectives.</li>
                         <li>• Design ethical AI governance frameworks and policies.</li>
                         <li>• Perform cybersecurity gap analyses to identify vulnerabilities.</li>
@@ -368,7 +369,7 @@
                     </div>
                     <h3 class="font-heading text-2xl font-semibold mb-4">Environmental & Sustainability Governance</h3>
                     <p class="text-white mb-6">Driving environmental responsibility and sustainability with measurable social returns.</p>
-                    <ul class="text-sm text-white space-y-2">
+                    <ul class="text-sm text-gray-900 space-y-2">
                         <li>• Conduct environmental impact assessments and compliance audits.</li>
                         <li>• Perform corporate sustainability maturity and performance assessments.</li>
                         <li>• Evaluate projects and initiatives through Social Return on Investment (S-ROI).</li>
@@ -385,7 +386,7 @@
                     </div>
                     <h3 class="font-heading text-2xl font-semibold mb-4">Competence & Training Management</h3>
                     <p class="text-white mb-6">Empowering organizations by identifying skill gaps and enhancing workforce capabilities.</p>
-                    <ul class="text-sm text-white space-y-2">
+                    <ul class="text-sm text-gray-900 space-y-2">
                         <li>• Analyze competency gaps across workforce roles and functions.</li>
                         <li>• Assess organizational training needs aligned with strategic goals.</li>
                         <li>• Develop competency management systems and career pathways.</li>
@@ -402,7 +403,7 @@
                     </div>
                     <h3 class="font-heading text-2xl font-semibold mb-4">ISO Standards & Business Continuity</h3>
                     <p class="text-white mb-6">Strengthening resilience and operational excellence through globally recognized standards.</p>
-                    <ul class="text-sm text-white space-y-2">
+                    <ul class="text-sm text-gray-900 space-y-2">
                         <li>• Implement and maintain ISO 9001, 14001, and 45001 management systems.</li>
                         <li>• Establish anti-bribery (ISO 37001) and innovation (ISO 56002) systems.</li>
                         <li>• Develop NCEMA 7001-aligned emergency management frameworks.</li>
@@ -419,7 +420,7 @@
                     </div>
                     <h3 class="font-heading text-2xl font-semibold mb-4">Security Consulting & Training</h3>
                     <p class="text-white mb-6">Delivering comprehensive, experience-driven security solutions beyond just technology.</p>
-                    <ul class="text-sm text-white space-y-2">
+                    <ul class="text-sm text-gray-900 space-y-2">
                         <li>• Assess and mitigate security risks across physical and digital domains.</li>
                         <li>• Design security strategies for public and private sector organizations.</li>
                         <li>• Deliver customized training programs for personnel at all levels.</li>
@@ -944,7 +945,56 @@
             </div>
         </div>
     </div>
+        <script>
+        // Simple floating particles effect
+        const canvas = document.getElementById('particles-bg');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
 
+        function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        function random(min, max) {
+        return Math.random() * (max - min) + min;
+        }
+
+        // Create particles
+        for (let i = 0; i < 40; i++) {
+        particles.push({
+            x: random(0, window.innerWidth),
+            y: random(0, window.innerHeight),
+            r: random(1.5, 3.5),
+            dx: random(-0.15, 0.15),
+            dy: random(-0.1, 0.1),
+            opacity: random(0.2, 0.6)
+        });
+        }
+
+        function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let p of particles) {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, 2 * Math.PI);
+            ctx.fillStyle = `rgba(255,255,255,${p.opacity})`;
+            ctx.shadowColor = "#fff";
+            ctx.shadowBlur = 8;
+            ctx.fill();
+            ctx.shadowBlur = 0;
+            p.x += p.dx;
+            p.y += p.dy;
+
+            // Bounce off edges
+            if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+            if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+        }
+        requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+        </script>
     <script>
         // Smooth scrolling and animations
         document.addEventListener('DOMContentLoaded', function() {
