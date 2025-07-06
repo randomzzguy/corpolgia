@@ -314,7 +314,7 @@
     <section id="services" class="py-20 bg-gray-50">
       <div class="max-w-7xl mx-auto px-4">
         <div class="text-center mb-16 fade-in">
-          <h2 class="font-heading text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 class="font-heading text-4xl md:text-5xl font-bold text-gray-400 mb-6">
             Our Services
           </h2>
           <p class="text-xl text-white-600 max-w-3xl mx-auto">
@@ -322,7 +322,7 @@
           </p>
         </div>
       </div>
-      <div class="max-w-7xxl mx-auto px-20">
+      <div class="max-w-7xl mx-auto px-100">
         <div id="servicesGlide" class="glide relative">
           <div class="glide__track" data-glide-el="track">
             <ul class="glide__slides">
@@ -447,7 +447,7 @@
     <section id="about" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16 fade-in">
-                <h2 class="font-heading text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                <h2 class="font-heading text-4xl md:text-5xl font-bold text-gray-400 mb-6">
                     About Corpolgia
                 </h2>
                 <p class="text-xl text-white max-w-3xl mx-auto">
@@ -583,7 +583,7 @@
     <section id="case-studies" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16 fade-in">
-                <h2 class="font-heading text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                <h2 class="font-heading text-4xl md:text-5xl font-bold text-gray-400 mb-6">
                     Success Stories
                 </h2>
                 <p class="text-xl text-white max-w-3xl mx-auto">
@@ -629,7 +629,7 @@
     <section id="blog" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16 fade-in">
-                <h2 class="font-heading text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                <h2 class="font-heading text-4xl md:text-5xl font-bold text-gray-400 mb-6">
                     Latest Insights
                 </h2>
                 <p class="text-xl text-white max-w-3xl mx-auto">
@@ -687,7 +687,7 @@
     <section class="py-20 bg-blue-50">
         <div class="max-w-4xl mx-auto px-4">
             <div class="text-center mb-12 fade-in">
-                <h2 class="font-heading text-4xl font-bold text-gray-900 mb-6">
+                <h2 class="font-heading text-4xl font-bold text-gray-400 mb-6">
                     Service Finder Tool
                 </h2>
                 <p class="text-xl text-white">
@@ -861,7 +861,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-gray-300 py-12">
+    <footer class="bg-gray-700 text-white py-12">
         <div class="max-w-7xl mx-auto px-4">
             <div class="grid md:grid-cols-4 gap-8">
                 <div>
@@ -945,45 +945,65 @@
             </div>
         </div>
     </div>
-        <script>
-        // Simple floating particles effect
-        const canvas = document.getElementById('particles-bg');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
+    <script>
+    // Simple floating particles effect
+    const canvas = document.getElementById('particles-bg');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
 
-        function resizeCanvas() {
+    function resizeCanvas() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-        }
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas);
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
 
-        function random(min, max) {
+    function random(min, max) {
         return Math.random() * (max - min) + min;
-        }
+    }
 
-        // Create particles
-        for (let i = 0; i < 40; i++) {
+    // Create particles
+    const shapes = ['circle', 'square', 'triangle'];
+    for (let i = 0; i < 40; i++) {
         particles.push({
             x: random(0, window.innerWidth),
             y: random(0, window.innerHeight),
             r: random(1.5, 3.5),
             dx: random(-0.15, 0.15),
             dy: random(-0.1, 0.1),
-            opacity: random(0.2, 0.6)
+            opacity: random(0.2, 0.6),
+            shape: shapes[Math.floor(Math.random() * shapes.length)]
         });
-        }
+    }
 
-        function animateParticles() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        for (let p of particles) {
+    function drawParticle(p) {
+        ctx.fillStyle = `rgba(255,255,255,${p.opacity})`;
+        ctx.shadowColor = "#fff";
+        ctx.shadowBlur = 8;
+
+        if (p.shape === 'circle') {
             ctx.beginPath();
             ctx.arc(p.x, p.y, p.r, 0, 2 * Math.PI);
-            ctx.fillStyle = `rgba(255,255,255,${p.opacity})`;
-            ctx.shadowColor = "#fff";
-            ctx.shadowBlur = 8;
             ctx.fill();
-            ctx.shadowBlur = 0;
+        } else if (p.shape === 'square') {
+            ctx.fillRect(p.x - p.r, p.y - p.r, p.r * 2, p.r * 2);
+        } else if (p.shape === 'triangle') {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y - p.r);
+            ctx.lineTo(p.x - p.r, p.y + p.r);
+            ctx.lineTo(p.x + p.r, p.y + p.r);
+            ctx.closePath();
+            ctx.fill();
+        }
+
+        ctx.shadowBlur = 0;
+    }
+
+    function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let p of particles) {
+            drawParticle(p);
+
             p.x += p.dx;
             p.y += p.dy;
 
@@ -992,9 +1012,10 @@
             if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
         }
         requestAnimationFrame(animateParticles);
-        }
-        animateParticles();
-        </script>
+    }
+    animateParticles();
+    </script>
+
     <script>
         // Smooth scrolling and animations
         document.addEventListener('DOMContentLoaded', function() {
