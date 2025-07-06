@@ -47,7 +47,16 @@
             background-position: center center;
         }
         }
-           
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background: inherit;
+            opacity: 0.9; /* Adjust opacity as needed */
+            pointer-events: none;
+        }
+                
         .font-heading {
             font-family: 'Montserrat', sans-serif;
         }
