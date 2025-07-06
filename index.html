@@ -31,13 +31,19 @@
     
         body {
             font-family: 'Open Sans', sans-serif;
-            background-image: url('/corpolgia/assets1/bg.svg'); /* adjust path as needed */
+            background-image: url('/corpolgia/assets1/bg.png'); /* adjust path as needed */
             background-repeat: no-repeat;
             background-position: center center;
             background-attachment: fixed;
             background-size: cover; /* or 'cover' if you want it to fill */
         }
-
+        @media (max-width: 768px) {
+        body {
+            background-image: url('/corpolgia/assets1/mobilebg.png');
+            background-size: cover;
+            background-position: center center;
+        }
+        }
         body::before {
             content: "";
             position: fixed;
