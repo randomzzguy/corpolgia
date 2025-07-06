@@ -28,27 +28,10 @@
             scroll-behavior: smooth;
         }
         /* Responsive background image adjustments */
-        @media (max-width: 768px) {
-        body {
-            background-size: 200%;      /* Zoom in the image on mobile */
-            background-position: top center;
-        }
-        body::before {
-            opacity: 0.3;               /* Make it even lighter on mobile */
-        }
-        }
-        @media (max-width: 480px) {
-        body {
-            background-size: 300%;      /* Even more zoom for very small screens */
-            background-position: top center;
-        }
-        body::before {
-            opacity: 0.15;
-        }
-        }
+    
         body {
             font-family: 'Open Sans', sans-serif;
-            background-image: url('/corpolgia/assets1/bg.png'); /* adjust path as needed */
+            background-image: url('/corpolgia/assets1/bg.svg'); /* adjust path as needed */
             background-repeat: no-repeat;
             background-position: center center;
             background-attachment: fixed;
