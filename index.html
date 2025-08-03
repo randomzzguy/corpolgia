@@ -7,12 +7,11 @@
     <meta name="description" content="Leading corporate governance consulting, ISO compliance, and asset management solutions for healthcare, energy, and AI industries in UAE and globally.">
     <meta name="keywords" content="corporate governance consulting, ISO compliance UAE, GDPR consulting, asset management, healthcare compliance, energy sector governance">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="apple-touch-icon" sizes="180x180" href="/corpolgia/assets1/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/corpolgia/assets1/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/corpolgia/assets1/favicon-16x16.png">
-    <link rel="manifest" href="/corpolgia/assets1/site.webmanifest">
-    <!-- Glide.js CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="manifest" href="assets/site.webmanifest">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root {
@@ -43,7 +42,7 @@
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
-            transition: all 0.8s ease;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .fade-in.visible {
@@ -52,42 +51,106 @@
         }
         
         .service-card {
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .service-card:hover::before {
+            left: 100%;
         }
         
         .service-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.15), 0 0 0 1px rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.3);
         }
         
         .btn-primary {
-            background: var(--dark-gold);
+            background: linear-gradient(135deg, var(--dark-gold) 0%, #d4af37 100%);
             filter: drop-shadow(0 4px 10px rgba(171, 117, 24, 0.2));
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
         }
         
         .btn-primary:hover {
-            transform: translateY(-2px);
-            filter: sepia(0.5) saturate(1.5) brightness(1.2);
-            box-shadow: 0 10px 25px rgb(171, 117, 24, 0.3);
+            transform: translateY(-3px) scale(1.05);
+            filter: sepia(0.5) saturate(1.5) brightness(1.3);
+            box-shadow: 0 15px 35px rgba(171, 117, 24, 0.4);
+        }
+        
+        html {
+            scroll-behavior: smooth;
         }
         
         .navbar {
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.95);
-            transition: all 0.3s ease;
+            backdrop-filter: blur(20px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
         }
         
         .navbar.scrolled {
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.15);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.98) 100%);
         }
         
         .team-card {
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.08), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .team-card:hover::before {
+            left: 100%;
         }
         
         .team-card:hover {
-            transform: scale(1.05);
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.12);
+            border-color: rgba(59, 130, 246, 0.2);
         }
         
         .process-step {
@@ -114,7 +177,7 @@
             bottom: 20px;
             right: 20px;
             z-index: 1000;
-            transition: all 0.3s ease;
+            transition: all 0.1s ease;
         }
         
         .chat-widget:hover {
@@ -135,7 +198,7 @@
             opacity: 0;
             visibility: hidden;
             transform: translateY(-10px);
-            transition: all 0.3s ease;
+            transition: all 0.1s ease;
         }
         
         .language-selector:hover .language-dropdown {
@@ -145,21 +208,54 @@
         }
         
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-5px) rotate(1deg); }
+            50% { transform: translateY(-10px) rotate(0deg); }
+            75% { transform: translateY(-5px) rotate(-1deg); }
         }
         
         .floating {
-            animation: float 3s ease-in-out infinite;
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.6); }
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        
+        @keyframes slide-in-left {
+            0% { transform: translateX(-100px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slide-in-right {
+            0% { transform: translateX(100px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+        
+        .slide-in-left {
+            animation: slide-in-left 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        
+        .slide-in-right {
+            animation: slide-in-right 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
         
         .mobile-menu {
             transform: translateX(100%);
-            transition: transform 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.98) 100%);
+            backdrop-filter: blur(20px);
+            border-left: 1px solid rgba(59, 130, 246, 0.1);
         }
         
         .mobile-menu.open {
             transform: translateX(0);
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
         }
 
         @keyframes shimmer-gold {
@@ -195,17 +291,17 @@
     <nav class="navbar fixed w-full top-0 z-50 px-4 py-3">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="font-heading font-bold text-2xl text-blue-900">
-                <img src="/corpolgia/assets1/logo.svg" alt="Corpolgia Logo" class="h-12 inline-block">
+                <img src="assets/logo.svg" alt="Corpolgia Logo" class="h-12 inline-block">
             </div>
             
             <!-- Desktop Menu -->
             <div class="hidden md:flex space-x-8">
-                <a href="#home" class="hover:text-blue-600 transition-colors">Home</a>
-                <a href="#services" class="hover:text-blue-600 transition-colors">Services</a>
-                <a href="#about" class="hover:text-blue-600 transition-colors">About</a>
-                <a href="#case-studies" class="hover:text-blue-600 transition-colors">Case Studies</a>
-                <a href="#blog" class="hover:text-blue-600 transition-colors">Blog</a>
-                <a href="#contact" class="hover:text-blue-600 transition-colors">Contact</a>
+                <a href="#home" class="hover:text-blue-600 transition-colors duration-75">Home</a>
+                <a href="#services" class="hover:text-blue-600 transition-colors duration-75">Services</a>
+                <a href="#about" class="hover:text-blue-600 transition-colors duration-75">About</a>
+                <a href="#case-studies" class="hover:text-blue-600 transition-colors duration-75">Case Studies</a>
+                <a href="#blog" class="hover:text-blue-600 transition-colors duration-75">Blog</a>
+                <a href="#contact" class="hover:text-blue-600 transition-colors duration-75">Contact</a>
             </div>
             
             <!-- Language Selector & Login -->
@@ -246,184 +342,1336 @@
 
     <!-- Hero Section -->
 <section id="home" class="parallax-bg min-h-screen flex items-center text-white relative overflow-hidden">
-    <!-- Overlay for transparency -->
-    <div style="background-color: #2e4254; opacity: 0.85;" class="absolute inset-0 z-10"></div>
+    <!-- Enhanced Gradient Overlay -->
+    <div class="absolute inset-0 z-10 bg-gradient-to-br from-blue-900/90 via-slate-800/85 to-blue-800/90"></div>
+    
+    <!-- Animated Background Elements -->
+    <div class="absolute inset-0 z-5">
+        <div class="absolute top-20 left-10 w-32 h-32 bg-blue-500/20 rounded-full blur-xl animate-pulse"></div>
+        <div class="absolute top-40 right-20 w-24 h-24 bg-cyan-400/20 rounded-full blur-lg floating" style="animation-delay: 1s;"></div>
+        <div class="absolute bottom-32 left-1/4 w-40 h-40 bg-blue-600/15 rounded-full blur-2xl animate-pulse" style="animation-delay: 2s;"></div>
+        <div class="absolute bottom-20 right-1/3 w-28 h-28 bg-cyan-500/20 rounded-full blur-xl floating" style="animation-delay: 0.5s;"></div>
+    </div>
+    
     <!-- Background video -->
     <video autoplay muted loop playsinline
         class="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
-        style="opacity: 0.65;">
-        <source src="/corpolgia/assets1/background.mp4" type="video/mp4">
+        style="opacity: 0.4;">
+        <source src="assets/background.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
+    
     <!-- Hero content -->
     <div class="max-w-7xl mx-auto px-4 relative z-20">
         <div class="fade-in">
+            <div class="mb-6">
+                <div class="inline-block px-4 py-2 bg-blue-600/20 backdrop-blur-sm border border-blue-400/30 rounded-full text-blue-200 text-sm font-medium mb-4 pulse-glow">
+                    ✨ Premier Governance Consulting in UAE
+                </div>
+            </div>
             <h1 class="font-heading text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                Corporate Governance
-                <span class="block gold-shimmer">Excellence</span>
+                <span class="slide-in-left">Corporate Governance</span>
+                <span class="block gold-shimmer slide-in-right" style="animation-delay: 0.3s;">Excellence</span>
             </h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-2xl opacity-90">
-                Transforming compliance challenges into business opportunities through expertise, integrity, and innovation.
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl opacity-90 slide-in-left" style="animation-delay: 0.6s;">
+                Corpolgia Consulting - A vital division within La Stella Group, transforming governance challenges into strategic opportunities.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4">
-                <button class="btn-primary px-8 py-4 rounded-lg font-semibold text-lg">
-                    Explore Services
+            <div class="flex flex-col sm:flex-row gap-4 slide-in-left" style="animation-delay: 0.9s;">
+                <button class="btn-primary px-8 py-4 rounded-lg font-semibold text-lg shadow-2xl">
+                    🚀 Explore Services
                 </button>
-                <button class="border-2 border-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-900 transition-all">
-                    Service Finder Tool
+                <button class="border-2 border-white/80 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-900 transition-all duration-300 backdrop-blur-sm bg-white/10">
+                    🎯 Service Finder Tool
                 </button>
             </div>
         </div>
     </div>
+    
+    <!-- Enhanced Scroll Indicator -->
     <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 floating z-20">
-        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-        </svg>
+        <div class="flex flex-col items-center space-y-2">
+            <span class="text-white/70 text-sm font-medium">Scroll to explore</span>
+            <div class="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+                <div class="w-1 h-3 bg-white/70 rounded-full mt-2 animate-bounce"></div>
+            </div>
+        </div>
     </div>
 </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-20 bg-gray-50">
+    <!-- Services Overview Section -->
+    <section id="services" class="py-20 bg-slate-800">
       <div class="max-w-7xl mx-auto px-4">
         <div class="text-center mb-16 fade-in">
-          <h2 class="font-heading text-4xl md:text-5xl font-bold text-gray-200 mb-6">
+          <h2 class="font-heading text-4xl md:text-5xl font-bold text-white mb-6">
             Our Services
           </h2>
-          <p class="text-xl text-gray-200 max-w-3xl mx-auto">
+          <p class="text-xl text-slate-300 max-w-3xl mx-auto">
             Comprehensive solutions tailored to your organizational goals and operational challenges.
           </p>
         </div>
       </div>
-      <div class="max-w-7xl mx-auto px-30">
-        <div id="servicesGlide" class="glide relative">
-          <div class="glide__track" data-glide-el="track">
-            <ul class="glide__slides">
-              <li class="glide__slide">
-                <div class="service-card bg-white rounded-xl p-10 shadow-lg fade-in min-w-0">
-                  <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+    </section>
+
+    <!-- Governance Consulting Services Section -->
+    <section class="py-20 bg-slate-900 relative overflow-hidden">
+        <!-- Corporate Grid Pattern Background -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="grid grid-cols-12 gap-4 h-full">
+                <div class="bg-blue-900 animate-pulse" style="animation-delay: 0s; animation-duration: 3s;"></div>
+                <div class="bg-blue-900 animate-pulse" style="animation-delay: 0.2s; animation-duration: 3s;"></div>
+                <div class="bg-blue-900 animate-pulse" style="animation-delay: 0.4s; animation-duration: 3s;"></div>
+                <div class="bg-blue-900 animate-pulse" style="animation-delay: 0.6s; animation-duration: 3s;"></div>
+                <div class="bg-blue-900 animate-pulse" style="animation-delay: 0.8s; animation-duration: 3s;"></div>
+                <div class="bg-blue-900 animate-pulse" style="animation-delay: 1s; animation-duration: 3s;"></div>
+                <div class="bg-blue-900 animate-pulse" style="animation-delay: 1.2s; animation-duration: 3s;"></div>
+                <div class="bg-blue-900 animate-pulse" style="animation-delay: 1.4s; animation-duration: 3s;"></div>
+                <div class="bg-blue-900 animate-pulse" style="animation-delay: 1.6s; animation-duration: 3s;"></div>
+                <div class="bg-blue-900 animate-pulse" style="animation-delay: 1.8s; animation-duration: 3s;"></div>
+                <div class="bg-blue-900 animate-pulse" style="animation-delay: 2s; animation-duration: 3s;"></div>
+                <div class="bg-blue-900 animate-pulse" style="animation-delay: 2.2s; animation-duration: 3s;"></div>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16 fade-in">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-blue-600 rounded-full mb-6 shadow-lg">
+                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                    </svg>
+                </div>
+                <h2 class="text-5xl font-heading font-bold text-white mb-6 tracking-tight">🏛️ Governance Consulting Services</h2>
+                <p class="text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed">Corpolgia is a premier provider of Governance Consulting Services in the UAE, offering tailored frameworks, tools, and advisory models for government entities, SOEs, and regulated industries.</p>
+            </div>
+            
+            <!-- Featured Services Showcase -->
+            <div class="space-y-16">
+                <!-- Hero Service Card -->
+                <div class="fade-in">
+                    <div class="bg-gradient-to-r from-blue-900 via-slate-800 to-purple-900 rounded-3xl p-8 md:p-12 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500 rounded-full opacity-10 transform translate-x-32 -translate-y-32"></div>
+                        <div class="relative z-10 grid md:grid-cols-2 gap-8 items-center">
+                            <div>
+                                <div class="flex items-center mb-6">
+                                    <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
+                                        <span class="text-2xl">🏛️</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-blue-400 text-sm font-medium uppercase tracking-wide">Featured Service</span>
+                                        <h3 class="text-2xl md:text-3xl font-bold text-white">Corporate Governance Frameworks</h3>
+                                    </div>
+                                </div>
+                                <p class="text-slate-300 text-lg mb-6 leading-relaxed">Comprehensive governance solutions designed for modern organizations, from family businesses to state-owned enterprises.</p>
+                                <button class="btn-primary px-6 py-3 rounded-lg font-semibold">Learn More →</button>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="bg-slate-800/50 backdrop-blur rounded-xl p-4 border border-slate-700">
+                                    <h4 class="text-white font-semibold mb-2">🎯 Board Governance Charters</h4>
+                                    <p class="text-slate-400 text-sm">Executive authority matrices and decision frameworks</p>
+                                </div>
+                                <div class="bg-slate-800/50 backdrop-blur rounded-xl p-4 border border-slate-700">
+                                    <h4 class="text-white font-semibold mb-2">🏢 SOE Governance Models</h4>
+                                    <p class="text-slate-400 text-sm">Specialized frameworks for government entities</p>
+                                </div>
+                                <div class="bg-slate-800/50 backdrop-blur rounded-xl p-4 border border-slate-700">
+                                    <h4 class="text-white font-semibold mb-2">⚖️ Committee Structures</h4>
+                                    <p class="text-slate-400 text-sm">Audit, Risk, Ethics, and Sustainability committees</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alternating Layout Services -->
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Policy Development - Left Side -->
+                    <div class="fade-in">
+                        <div class="bg-gradient-to-br from-indigo-900 to-slate-800 rounded-2xl p-8 h-full relative overflow-hidden">
+                            <div class="absolute bottom-0 left-0 w-32 h-32 bg-indigo-500 rounded-full opacity-20 transform -translate-x-16 translate-y-16"></div>
+                            <div class="relative z-10">
+                                <div class="w-12 h-12 bg-indigo-600 rounded-xl flex items-center justify-center mb-6">
+                                    <span class="text-xl">📋</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-4">Policy & SOP Development</h3>
+                                <p class="text-slate-300 mb-6">End-to-end policy restructuring and modular SOP creation aligned with international standards.</p>
+                                <div class="space-y-3">
+                                    <div class="flex items-center text-slate-300">
+                                        <div class="w-2 h-2 bg-indigo-400 rounded-full mr-3"></div>
+                                        <span class="text-sm">Policy landscape mapping</span>
+                                    </div>
+                                    <div class="flex items-center text-slate-300">
+                                        <div class="w-2 h-2 bg-indigo-400 rounded-full mr-3"></div>
+                                        <span class="text-sm">ISO-aligned procedures</span>
+                                    </div>
+                                    <div class="flex items-center text-slate-300">
+                                        <div class="w-2 h-2 bg-indigo-400 rounded-full mr-3"></div>
+                                        <span class="text-sm">Comprehensive policy manuals</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Government Entities - Right Side -->
+                    <div class="fade-in">
+                        <div class="bg-gradient-to-br from-purple-900 to-slate-800 rounded-2xl p-8 h-full relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-24 h-24 bg-purple-500 rounded-full opacity-20 transform translate-x-12 -translate-y-12"></div>
+                            <div class="relative z-10">
+                                <div class="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center mb-6">
+                                    <span class="text-xl">🏢</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-4">Government & Regulatory Bodies</h3>
+                                <p class="text-slate-300 mb-6">Specialized governance models for ministries, authorities, and regulatory frameworks.</p>
+                                <div class="space-y-3">
+                                    <div class="flex items-center text-slate-300">
+                                        <div class="w-2 h-2 bg-purple-400 rounded-full mr-3"></div>
+                                        <span class="text-sm">Organizational governance models</span>
+                                    </div>
+                                    <div class="flex items-center text-slate-300">
+                                        <div class="w-2 h-2 bg-purple-400 rounded-full mr-3"></div>
+                                        <span class="text-sm">Regulatory frameworks & compliance</span>
+                                    </div>
+                                    <div class="flex items-center text-slate-300">
+                                        <div class="w-2 h-2 bg-purple-400 rounded-full mr-3"></div>
+                                        <span class="text-sm">UAE federal alignment</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Process Timeline Layout -->
+                <div class="fade-in mt-16">
+                    <div class="text-center mb-12">
+                        <h3 class="text-3xl font-bold text-white mb-4">Our Governance Process</h3>
+                        <p class="text-slate-300 max-w-2xl mx-auto">A systematic approach to building robust governance frameworks</p>
+                    </div>
+                    
+                    <div class="relative">
+                        <!-- Timeline Line -->
+                        <div class="absolute left-1/2 transform -translate-x-0.5 w-1 h-full bg-gradient-to-b from-blue-500 via-purple-500 to-green-500 rounded-full"></div>
+                        
+                        <!-- Timeline Items -->
+                        <div class="space-y-12">
+                            <!-- ISO Systems -->
+                            <div class="flex items-center">
+                                <div class="w-1/2 pr-8 text-right">
+                                    <div class="bg-gradient-to-l from-blue-900 to-slate-800 rounded-2xl p-6 border border-blue-700">
+                                        <h4 class="text-xl font-bold text-white mb-3">🏆 ISO Governance Systems</h4>
+                                        <p class="text-slate-300 text-sm mb-4">Comprehensive certification support and implementation</p>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-xs">ISO 37301</span>
+                                            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-xs">ISO 37000</span>
+                                            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-xs">ISO 42001</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-8 h-8 bg-blue-600 rounded-full border-4 border-slate-900 flex items-center justify-center relative z-10">
+                                    <span class="text-white text-sm font-bold">1</span>
+                                </div>
+                                <div class="w-1/2 pl-8"></div>
+                            </div>
+                            
+                            <!-- Board Effectiveness -->
+                            <div class="flex items-center">
+                                <div class="w-1/2 pr-8"></div>
+                                <div class="w-8 h-8 bg-purple-600 rounded-full border-4 border-slate-900 flex items-center justify-center relative z-10">
+                                    <span class="text-white text-sm font-bold">2</span>
+                                </div>
+                                <div class="w-1/2 pl-8">
+                                    <div class="bg-gradient-to-r from-purple-900 to-slate-800 rounded-2xl p-6 border border-purple-700">
+                                        <h4 class="text-xl font-bold text-white mb-3">👥 Board & Executive Effectiveness</h4>
+                                        <p class="text-slate-300 text-sm mb-4">Performance frameworks and leadership development</p>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center text-slate-300 text-sm">
+                                                <div class="w-2 h-2 bg-purple-400 rounded-full mr-2"></div>
+                                                <span>Board evaluation frameworks</span>
+                                            </div>
+                                            <div class="flex items-center text-slate-300 text-sm">
+                                                <div class="w-2 h-2 bg-purple-400 rounded-full mr-2"></div>
+                                                <span>Performance scorecards</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Risk Management -->
+                            <div class="flex items-center">
+                                <div class="w-1/2 pr-8 text-right">
+                                    <div class="bg-gradient-to-l from-red-900 to-slate-800 rounded-2xl p-6 border border-red-700">
+                                        <h4 class="text-xl font-bold text-white mb-3">⚠️ Risk Management & Controls</h4>
+                                        <p class="text-slate-300 text-sm mb-4">Enterprise risk frameworks and AML compliance</p>
+                                        <div class="grid grid-cols-2 gap-2 text-xs">
+                                            <span class="bg-red-600 text-white px-2 py-1 rounded">ERM ISO 31000</span>
+                                            <span class="bg-red-600 text-white px-2 py-1 rounded">AML Frameworks</span>
+                                            <span class="bg-red-600 text-white px-2 py-1 rounded">Risk Registers</span>
+                                            <span class="bg-red-600 text-white px-2 py-1 rounded">KYC/EDD</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-8 h-8 bg-red-600 rounded-full border-4 border-slate-900 flex items-center justify-center relative z-10">
+                                    <span class="text-white text-sm font-bold">3</span>
+                                </div>
+                                <div class="w-1/2 pl-8"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Interactive Tabs Section -->
+                <div class="fade-in mt-16">
+                    <div class="bg-slate-800 rounded-3xl p-8 border border-slate-700">
+                        <div class="text-center mb-8">
+                            <h3 class="text-2xl font-bold text-white mb-4">Specialized Services</h3>
+                            <p class="text-slate-300">Click to explore our advanced governance solutions</p>
+                        </div>
+                        
+                        <!-- Tab Navigation -->
+                        <div class="flex flex-wrap justify-center gap-4 mb-8">
+                            <button class="service-tab active bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300" data-tab="ai-governance">
+                                🤖 AI & Data Governance
+                            </button>
+                            <button class="service-tab bg-slate-700 text-slate-300 px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:bg-slate-600" data-tab="training">
+                                🎓 Training & Capacity
+                            </button>
+                            <button class="service-tab bg-slate-700 text-slate-300 px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:bg-slate-600" data-tab="audits">
+                                📊 Audits & Assessments
+                            </button>
+                        </div>
+                        
+                        <!-- Tab Content -->
+                        <div class="tab-content">
+                            <div id="ai-governance" class="tab-panel active">
+                                <div class="grid md:grid-cols-2 gap-8 items-center">
+                                    <div>
+                                        <h4 class="text-2xl font-bold text-white mb-4">AI & Data Governance</h4>
+                                        <p class="text-slate-300 mb-6">Future-ready governance frameworks for the digital age, aligned with UAE AI Ethics Guidelines and ISO 42001.</p>
+                                        <div class="space-y-4">
+                                            <div class="flex items-start">
+                                                <div class="w-8 h-8 bg-cyan-600 rounded-lg flex items-center justify-center mr-4 mt-1">
+                                                    <span class="text-white text-sm">🧠</span>
+                                                </div>
+                                                <div>
+                                                    <h5 class="text-white font-semibold">AI Governance Frameworks</h5>
+                                                    <p class="text-slate-400 text-sm">ISO 42001 compliance and ethical AI implementation</p>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-start">
+                                                <div class="w-8 h-8 bg-cyan-600 rounded-lg flex items-center justify-center mr-4 mt-1">
+                                                    <span class="text-white text-sm">🔒</span>
+                                                </div>
+                                                <div>
+                                                    <h5 class="text-white font-semibold">Data Classification & Controls</h5>
+                                                    <p class="text-slate-400 text-sm">Comprehensive data handling and access protocols</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="bg-gradient-to-br from-cyan-900/50 to-blue-900/50 rounded-2xl p-6 border border-cyan-700">
+                                        <div class="text-center">
+                                            <div class="w-16 h-16 bg-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                                <span class="text-2xl">🤖</span>
+                                            </div>
+                                            <h5 class="text-white font-bold mb-2">Digital Transformation Ready</h5>
+                                            <p class="text-slate-300 text-sm">Supporting AI/automation adoption with robust governance</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="training" class="tab-panel hidden">
+                                <div class="text-center">
+                                    <div class="w-20 h-20 bg-gradient-to-br from-green-600 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                                        <span class="text-3xl">🎓</span>
+                                    </div>
+                                    <h4 class="text-2xl font-bold text-white mb-4">Training & Capacity Building</h4>
+                                    <p class="text-slate-300 mb-8 max-w-2xl mx-auto">Comprehensive education programs for governance excellence</p>
+                                    <div class="grid md:grid-cols-3 gap-6">
+                                        <div class="bg-slate-700 rounded-xl p-6">
+                                            <h5 class="text-white font-semibold mb-3">Board Governance</h5>
+                                            <p class="text-slate-400 text-sm">Certified programs for directors and corporate secretaries</p>
+                                        </div>
+                                        <div class="bg-slate-700 rounded-xl p-6">
+                                            <h5 class="text-white font-semibold mb-3">Policy Writing</h5>
+                                            <p class="text-slate-400 text-sm">Risk-based decision making and documentation</p>
+                                        </div>
+                                        <div class="bg-slate-700 rounded-xl p-6">
+                                            <h5 class="text-white font-semibold mb-3">Custom Academies</h5>
+                                            <p class="text-slate-400 text-sm">Tailored programs for public officials and compliance teams</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="audits" class="tab-panel hidden">
+                                <div class="grid md:grid-cols-2 gap-8">
+                                    <div class="space-y-6">
+                                        <h4 class="text-2xl font-bold text-white">Governance Audits & Maturity Assessments</h4>
+                                        <p class="text-slate-300">Independent evaluation and benchmarking against global standards</p>
+                                        <div class="space-y-4">
+                                            <div class="bg-slate-700 rounded-lg p-4">
+                                                <h5 class="text-white font-semibold mb-2">📈 Maturity Modeling</h5>
+                                                <p class="text-slate-400 text-sm">COSO, OECD, ISO 37000 frameworks</p>
+                                            </div>
+                                            <div class="bg-slate-700 rounded-lg p-4">
+                                                <h5 class="text-white font-semibold mb-2">🔍 Independent Audits</h5>
+                                                <p class="text-slate-400 text-sm">Comprehensive board and governance reviews</p>
+                                            </div>
+                                            <div class="bg-slate-700 rounded-lg p-4">
+                                                <h5 class="text-white font-semibold mb-2">📊 Benchmarking</h5>
+                                                <p class="text-slate-400 text-sm">ADX, SCA, World Bank best practices</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="bg-gradient-to-br from-orange-900/50 to-red-900/50 rounded-2xl p-8 border border-orange-700">
+                                        <div class="text-center">
+                                            <div class="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                                <span class="text-2xl">📊</span>
+                                            </div>
+                                            <h5 class="text-white font-bold mb-4">Measurable Results</h5>
+                                            <p class="text-slate-300 text-sm mb-4">Detailed reports with actionable improvement plans and KPIs</p>
+                                            <div class="bg-orange-600 text-white px-4 py-2 rounded-lg text-sm font-semibold">
+                                                Performance Tracking
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Consulting Services Section -->
+    <section class="py-20 bg-slate-900 relative overflow-hidden">
+        <!-- Organic Wave Pattern Background -->
+        <div class="absolute inset-0 opacity-10">
+            <svg class="w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="none">
+                <path d="M0,400 Q300,200 600,400 T1200,400 L1200,800 L0,800 Z" fill="#10b981" class="animate-pulse" style="animation-duration: 4s;">
+                    <animate attributeName="d" dur="8s" repeatCount="indefinite" values="M0,400 Q300,200 600,400 T1200,400 L1200,800 L0,800 Z;M0,400 Q300,600 600,400 T1200,400 L1200,800 L0,800 Z;M0,400 Q300,200 600,400 T1200,400 L1200,800 L0,800 Z"/>
+                </path>
+                <path d="M0,500 Q400,300 800,500 T1200,500 L1200,800 L0,800 Z" fill="#059669" class="animate-pulse" style="animation-duration: 6s; animation-delay: 1s;">
+                    <animate attributeName="d" dur="10s" repeatCount="indefinite" values="M0,500 Q400,300 800,500 T1200,500 L1200,800 L0,800 Z;M0,500 Q400,700 800,500 T1200,500 L1200,800 L0,800 Z;M0,500 Q400,300 800,500 T1200,500 L1200,800 L0,800 Z"/>
+                </path>
+            </svg>
+        </div>
+        
+        <!-- Floating Leaf Elements -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-20 left-10 w-8 h-8 text-green-300 opacity-30 floating" style="animation-delay: 0s;">
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 2C5.58 2 2 5.58 2 10s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zM8 15l-3-3 1.41-1.41L8 12.17l5.59-5.59L15 8l-7 7z" clip-rule="evenodd"></path>
+                </svg>
+            </div>
+            <div class="absolute top-40 right-20 w-6 h-6 text-emerald-400 opacity-40 floating" style="animation-delay: 2s;">
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+            </div>
+            <div class="absolute bottom-32 left-1/4 w-10 h-10 text-green-200 opacity-20 floating" style="animation-delay: 4s;">
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
+                </svg>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16 fade-in">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full mb-6 shadow-lg">
+                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h2 class="text-5xl font-heading font-bold text-white mb-6 tracking-tight">🌱 Sustainability Consulting Services</h2>
+                <p class="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">Corpolgia's sustainability services align with UAE Vision 2071, Net Zero 2050, and global frameworks (GRI, SASB, TCFD, ISSB).</p>
+            </div>
+            
+            <!-- Hero Sustainability Card -->
+            <div class="fade-in mb-12">
+                <div class="bg-gradient-to-br from-green-800 via-emerald-800 to-teal-800 rounded-3xl p-12 border border-green-600 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-green-400/20 to-transparent rounded-full -translate-y-32 translate-x-32"></div>
+                    <div class="relative z-10 grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <div class="flex items-center mb-6">
+                                <div class="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center mr-4">
+                                    <span class="text-3xl">🌍</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-3xl font-bold text-white">ESG Strategy & Reporting</h3>
+                                    <p class="text-green-200">Foundation of sustainable business</p>
+                                </div>
+                            </div>
+                            <p class="text-green-100 mb-6 text-lg">Comprehensive ESG strategies aligned with UAE Vision 2071, global frameworks (GRI, SASB, TCFD, ISSB), and leading to improved ESG ratings.</p>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-green-700/50 rounded-lg p-4">
+                                    <h5 class="text-white font-semibold mb-2">📊 Reporting Standards</h5>
+                                    <p class="text-green-200 text-sm">GRI, SASB, TCFD, ISSB compliance</p>
+                                </div>
+                                <div class="bg-green-700/50 rounded-lg p-4">
+                                    <h5 class="text-white font-semibold mb-2">⭐ ESG Ratings</h5>
+                                    <p class="text-green-200 text-sm">MSCI, Sustainalytics improvement</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-gradient-to-br from-green-600 to-emerald-600 rounded-full w-48 h-48 flex items-center justify-center mx-auto mb-6 shadow-2xl">
+                                <span class="text-6xl">📈</span>
+                            </div>
+                            <div class="bg-green-600 text-white px-6 py-3 rounded-xl font-semibold inline-block">
+                                UAE Vision 2071 Aligned
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Masonry Grid Layout -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Climate Action - Large Card -->
+                <div class="fade-in md:col-span-2 lg:row-span-2">
+                    <div class="bg-gradient-to-br from-blue-900 to-cyan-900 rounded-2xl p-8 border border-blue-700 h-full relative overflow-hidden">
+                        <div class="absolute -top-10 -right-10 w-32 h-32 bg-blue-400/20 rounded-full"></div>
+                        <div class="relative z-10">
+                            <div class="flex items-center mb-6">
+                                <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
+                                    <span class="text-2xl">🌡️</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white">Climate Action & Net Zero</h3>
+                            </div>
+                            <p class="text-blue-100 mb-6">Carbon reduction roadmaps aligned with UAE Net Zero 2050 initiative</p>
+                            
+                            <div class="space-y-4 mb-6">
+                                <div class="flex items-center bg-blue-800/50 rounded-lg p-3">
+                                    <div class="w-8 h-8 bg-blue-400 rounded-lg flex items-center justify-center mr-3">
+                                        <span class="text-sm">📊</span>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-white font-semibold text-sm">GHG Inventories</h5>
+                                        <p class="text-blue-200 text-xs">ISO 14064 & GHG Protocol</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center bg-blue-800/50 rounded-lg p-3">
+                                    <div class="w-8 h-8 bg-blue-400 rounded-lg flex items-center justify-center mr-3">
+                                        <span class="text-sm">🎯</span>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-white font-semibold text-sm">SBTi Targets</h5>
+                                        <p class="text-blue-200 text-xs">Science-based target setting</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center bg-blue-800/50 rounded-lg p-3">
+                                    <div class="w-8 h-8 bg-blue-400 rounded-lg flex items-center justify-center mr-3">
+                                        <span class="text-sm">⚠️</span>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-white font-semibold text-sm">Climate Risk</h5>
+                                        <p class="text-blue-200 text-xs">Assessment & adaptation</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl p-4 text-center">
+                                <h5 class="text-white font-bold mb-2">UAE Net Zero 2050</h5>
+                                <p class="text-blue-100 text-sm">Aligned strategies for carbon neutrality</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Circular Economy -->
+                <div class="fade-in">
+                    <div class="bg-gradient-to-br from-purple-900 to-pink-900 rounded-2xl p-6 border border-purple-700 h-full">
+                        <div class="text-center mb-4">
+                            <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl">♻️</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Circular Economy</h3>
+                            <p class="text-purple-200 text-sm">Waste-to-resource transformation</p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="bg-purple-800/50 rounded-lg p-3">
+                                <h5 class="text-white font-semibold text-sm mb-1">🔄 Business Models</h5>
+                                <p class="text-purple-200 text-xs">Circular value chains</p>
+                            </div>
+                            <div class="bg-purple-800/50 rounded-lg p-3">
+                                <h5 class="text-white font-semibold text-sm mb-1">🗑️ Zero Waste</h5>
+                                <p class="text-purple-200 text-xs">Resource optimization</p>
+                            </div>
+                            <div class="bg-purple-800/50 rounded-lg p-3">
+                                <h5 class="text-white font-semibold text-sm mb-1">📊 LCA</h5>
+                                <p class="text-purple-200 text-xs">ISO 14040 assessments</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sustainable Finance -->
+                <div class="fade-in">
+                    <div class="bg-gradient-to-br from-yellow-900 to-orange-900 rounded-2xl p-6 border border-yellow-700 h-full">
+                        <div class="text-center mb-4">
+                            <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl">💰</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Sustainable Finance</h3>
+                            <p class="text-yellow-200 text-sm">Green bonds & ESG investment</p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="bg-yellow-800/50 rounded-lg p-3">
+                                <h5 class="text-white font-semibold text-sm mb-1">🟢 Green Bonds</h5>
+                                <p class="text-yellow-200 text-xs">ICMA principles</p>
+                            </div>
+                            <div class="bg-yellow-800/50 rounded-lg p-3">
+                                <h5 class="text-white font-semibold text-sm mb-1">📈 ESG Integration</h5>
+                                <p class="text-yellow-200 text-xs">Investment decisions</p>
+                            </div>
+                            <div class="bg-yellow-800/50 rounded-lg p-3">
+                                <h5 class="text-white font-semibold text-sm mb-1">🇪🇺 EU Taxonomy</h5>
+                                <p class="text-yellow-200 text-xs">Compliance alignment</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Water & Energy - Wide Card -->
+                <div class="fade-in md:col-span-2">
+                    <div class="bg-gradient-to-r from-teal-900 to-blue-900 rounded-2xl p-6 border border-teal-700">
+                        <div class="grid md:grid-cols-2 gap-6 items-center">
+                            <div>
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 bg-teal-500 rounded-xl flex items-center justify-center mr-4">
+                                        <span class="text-xl">💧</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-bold text-white">Water & Energy Efficiency</h3>
+                                        <p class="text-teal-200 text-sm">Resource optimization programs</p>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div class="bg-teal-800/50 rounded-lg p-3 text-center">
+                                        <span class="text-2xl mb-2 block">⚡</span>
+                                        <h5 class="text-white font-semibold text-sm">ISO 50001</h5>
+                                        <p class="text-teal-200 text-xs">Energy Management</p>
+                                    </div>
+                                    <div class="bg-teal-800/50 rounded-lg p-3 text-center">
+                                        <span class="text-2xl mb-2 block">🌊</span>
+                                        <h5 class="text-white font-semibold text-sm">ISO 14046</h5>
+                                        <p class="text-teal-200 text-xs">Water Footprint</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <div class="bg-gradient-to-br from-teal-600 to-blue-600 rounded-2xl p-6">
+                                    <span class="text-4xl mb-3 block">🔋</span>
+                                    <h5 class="text-white font-bold mb-2">Renewable Energy</h5>
+                                    <p class="text-teal-100 text-sm">Transition strategies & smart systems</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Remaining Services in Compact Cards -->
+                <div class="fade-in">
+                    <div class="bg-gradient-to-br from-green-900 to-emerald-900 rounded-2xl p-6 border border-green-700 h-full">
+                        <div class="text-center">
+                            <span class="text-3xl mb-3 block">🌿</span>
+                            <h3 class="text-lg font-bold text-white mb-2">Biodiversity & Nature</h3>
+                            <p class="text-green-200 text-sm mb-4">TNFD framework & natural capital</p>
+                            <div class="bg-green-600 text-white px-4 py-2 rounded-lg text-xs font-semibold">
+                                Nature-Based Solutions
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <div class="bg-gradient-to-br from-indigo-900 to-purple-900 rounded-2xl p-6 border border-indigo-700 h-full">
+                        <div class="text-center">
+                            <span class="text-3xl mb-3 block">🔗</span>
+                            <h3 class="text-lg font-bold text-white mb-2">Supply Chain</h3>
+                            <p class="text-indigo-200 text-sm mb-4">ISO 20400 sustainable procurement</p>
+                            <div class="bg-indigo-600 text-white px-4 py-2 rounded-lg text-xs font-semibold">
+                                ESG Supplier Assessment
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <div class="bg-gradient-to-br from-cyan-900 to-blue-900 rounded-2xl p-6 border border-cyan-700 h-full">
+                        <div class="text-center">
+                            <span class="text-3xl mb-3 block">💻</span>
+                            <h3 class="text-lg font-bold text-white mb-2">Digital Sustainability</h3>
+                            <p class="text-cyan-200 text-sm mb-4">Data platforms & smart monitoring</p>
+                            <div class="bg-cyan-600 text-white px-4 py-2 rounded-lg text-xs font-semibold">
+                                SAP EHS Integration
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <div class="bg-gradient-to-br from-rose-900 to-pink-900 rounded-2xl p-6 border border-rose-700 h-full">
+                        <div class="text-center">
+                            <span class="text-3xl mb-3 block">🎓</span>
+                            <h3 class="text-lg font-bold text-white mb-2">Training & Capacity</h3>
+                            <p class="text-rose-200 text-sm mb-4">ESG leadership & culture transformation</p>
+                            <div class="bg-rose-600 text-white px-4 py-2 rounded-lg text-xs font-semibold">
+                                Board Training Programs
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Healthcare Consulting Services Section -->
+    <section class="py-20 bg-slate-900 relative overflow-hidden">
+        <!-- Medical Grid Pattern Background -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="grid grid-cols-12 gap-4 h-full">
+                <div class="bg-blue-500 animate-pulse" style="animation-duration: 2s;"></div>
+                <div class="bg-cyan-500 animate-pulse" style="animation-duration: 2.5s; animation-delay: 0.2s;"></div>
+                <div class="bg-blue-400 animate-pulse" style="animation-duration: 3s; animation-delay: 0.4s;"></div>
+                <div class="bg-cyan-400 animate-pulse" style="animation-duration: 2.2s; animation-delay: 0.6s;"></div>
+                <div class="bg-blue-600 animate-pulse" style="animation-duration: 2.8s; animation-delay: 0.8s;"></div>
+                <div class="bg-cyan-600 animate-pulse" style="animation-duration: 2.3s; animation-delay: 1s;"></div>
+                <div class="bg-blue-500 animate-pulse" style="animation-duration: 2.7s; animation-delay: 1.2s;"></div>
+                <div class="bg-cyan-500 animate-pulse" style="animation-duration: 2.1s; animation-delay: 1.4s;"></div>
+                <div class="bg-blue-400 animate-pulse" style="animation-duration: 2.9s; animation-delay: 1.6s;"></div>
+                <div class="bg-cyan-400 animate-pulse" style="animation-duration: 2.4s; animation-delay: 1.8s;"></div>
+                <div class="bg-blue-600 animate-pulse" style="animation-duration: 2.6s; animation-delay: 2s;"></div>
+                <div class="bg-cyan-600 animate-pulse" style="animation-duration: 2.2s; animation-delay: 2.2s;"></div>
+            </div>
+        </div>
+        
+        <!-- Floating Medical Icons -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-16 right-16 w-12 h-12 text-blue-200 opacity-30 floating" style="animation-delay: 0s;">
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 2C5.58 2 2 5.58 2 10s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zM8 15l-3-3 1.41-1.41L8 12.17l5.59-5.59L15 8l-7 7z" clip-rule="evenodd"></path>
+                </svg>
+            </div>
+            <div class="absolute bottom-20 left-16 w-8 h-8 text-cyan-300 opacity-40 floating" style="animation-delay: 3s;">
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </div>
+            <div class="absolute top-1/2 left-8 w-6 h-6 text-blue-400 opacity-25 floating" style="animation-delay: 1.5s;">
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                </svg>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16 fade-in">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-full mb-6 shadow-lg">
+                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h2 class="text-5xl font-heading font-bold text-white mb-6 tracking-tight">🏥 Healthcare Consulting Services</h2>
+                <p class="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">Corpolgia's healthcare services align with UAE's healthcare vision (Abu Dhabi Vision 2030, DoH, MoHAP) and global standards (ISO, JCIA).</p>
+            </div>
+            
+            <!-- Featured Healthcare Services Layout -->
+            
+            <!-- Emergency Preparedness Hero Section -->
+            <div class="fade-in mb-12">
+                <div class="bg-gradient-to-r from-red-900 via-red-800 to-orange-900 rounded-3xl p-10 border border-red-600 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-red-500 to-orange-500 animate-pulse"></div>
+                    <div class="grid lg:grid-cols-3 gap-8 items-center">
+                        <div class="lg:col-span-2">
+                            <div class="flex items-center mb-6">
+                                <div class="w-16 h-16 bg-red-500 rounded-2xl flex items-center justify-center mr-4 animate-pulse">
+                                    <span class="text-3xl">🚨</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-3xl font-bold text-white">Business Continuity & Emergency Preparedness</h3>
+                                    <p class="text-red-200">ISO 22301 & NCEMA 7000:2021 Compliance</p>
+                                </div>
+                            </div>
+                            <p class="text-red-100 mb-6 text-lg">Comprehensive BCMS design and audit services aligned with UAE frameworks and international standards.</p>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <div class="bg-red-800/50 rounded-lg p-4 text-center">
+                                    <span class="text-2xl mb-2 block">📋</span>
+                                    <h5 class="text-white font-semibold text-sm">Risk Registers</h5>
+                                    <p class="text-red-200 text-xs">BIA & continuity plans</p>
+                                </div>
+                                <div class="bg-red-800/50 rounded-lg p-4 text-center">
+                                    <span class="text-2xl mb-2 block">🦠</span>
+                                    <h5 class="text-white font-semibold text-sm">Pandemic Protocols</h5>
+                                    <p class="text-red-200 text-xs">Crisis response systems</p>
+                                </div>
+                                <div class="bg-red-800/50 rounded-lg p-4 text-center">
+                                    <span class="text-2xl mb-2 block">🎯</span>
+                                    <h5 class="text-white font-semibold text-sm">Simulation Drills</h5>
+                                    <p class="text-red-200 text-xs">Response testing</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-gradient-to-br from-red-600 to-orange-600 rounded-full w-40 h-40 flex items-center justify-center mx-auto mb-4 shadow-2xl">
+                                <span class="text-5xl">⚡</span>
+                            </div>
+                            <div class="bg-red-600 text-white px-6 py-3 rounded-xl font-semibold">
+                                DoH Framework Aligned
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Core Healthcare Services Grid -->
+            <div class="grid lg:grid-cols-2 gap-8 mb-12">
+                <!-- Strategy & Policy -->
+                <div class="fade-in">
+                    <div class="bg-gradient-to-br from-blue-900 to-indigo-900 rounded-2xl p-8 border border-blue-700 h-full">
+                        <div class="flex items-center mb-6">
+                            <div class="w-14 h-14 bg-blue-500 rounded-xl flex items-center justify-center mr-4">
+                                <span class="text-2xl">🏛️</span>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-white">Healthcare Strategy & Policy</h3>
+                                <p class="text-blue-200">Transformation & alignment</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="bg-blue-800/50 rounded-lg p-4">
+                                <h5 class="text-white font-semibold mb-2">🔄 Transformation Strategies</h5>
+                                <p class="text-blue-200 text-sm">Healthcare system modernization</p>
+                            </div>
+                            <div class="bg-blue-800/50 rounded-lg p-4">
+                                <h5 class="text-white font-semibold mb-2">🧠 Mental Health Policies</h5>
+                                <p class="text-blue-200 text-sm">Preventive care & chronic disease management</p>
+                            </div>
+                            <div class="bg-blue-800/50 rounded-lg p-4">
+                                <h5 class="text-white font-semibold mb-2">🌍 Global Alignment</h5>
+                                <p class="text-blue-200 text-sm">UAE Vision, WHO & OECD benchmarks</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Compliance & Accreditation -->
+                <div class="fade-in">
+                    <div class="bg-gradient-to-br from-green-900 to-emerald-900 rounded-2xl p-8 border border-green-700 h-full">
+                        <div class="flex items-center mb-6">
+                            <div class="w-14 h-14 bg-green-500 rounded-xl flex items-center justify-center mr-4">
+                                <span class="text-2xl">✅</span>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-white">Regulatory Compliance</h3>
+                                <p class="text-green-200">Accreditation support</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div class="bg-green-800/50 rounded-lg p-3 text-center">
+                                <span class="text-xl mb-2 block">🏆</span>
+                                <h5 class="text-white font-semibold text-sm">JCI & CBAHI</h5>
+                                <p class="text-green-200 text-xs">International standards</p>
+                            </div>
+                            <div class="bg-green-800/50 rounded-lg p-3 text-center">
+                                <span class="text-xl mb-2 block">📜</span>
+                                <h5 class="text-white font-semibold text-sm">ISO Compliance</h5>
+                                <p class="text-green-200 text-xs">15189, 13485 standards</p>
+                            </div>
+                        </div>
+                        <div class="bg-green-600 text-white p-4 rounded-xl text-center">
+                            <h5 class="font-bold mb-2">DoH/MOHAP Licensing</h5>
+                            <p class="text-sm">Complete audit & documentation support</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quality & Performance Dashboard Layout -->
+            <div class="fade-in mb-12">
+                <div class="bg-gradient-to-r from-purple-900 to-pink-900 rounded-2xl p-8 border border-purple-700">
+                    <div class="text-center mb-8">
+                        <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">📊</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Healthcare Quality & Performance Management</h3>
+                        <p class="text-purple-200">Comprehensive quality programs and performance optimization</p>
+                    </div>
+                    <div class="grid md:grid-cols-4 gap-6">
+                        <div class="bg-purple-800/50 rounded-xl p-6 text-center">
+                            <span class="text-3xl mb-3 block">📈</span>
+                            <h5 class="text-white font-bold mb-2">KPI Dashboards</h5>
+                            <p class="text-purple-200 text-sm">Real-time monitoring</p>
+                        </div>
+                        <div class="bg-purple-800/50 rounded-xl p-6 text-center">
+                            <span class="text-3xl mb-3 block">⚡</span>
+                            <h5 class="text-white font-bold mb-2">Lean Healthcare</h5>
+                            <p class="text-purple-200 text-sm">Process optimization</p>
+                        </div>
+                        <div class="bg-purple-800/50 rounded-xl p-6 text-center">
+                            <span class="text-3xl mb-3 block">😊</span>
+                            <h5 class="text-white font-bold mb-2">Patient Experience</h5>
+                            <p class="text-purple-200 text-sm">Service redesign</p>
+                        </div>
+                        <div class="bg-purple-800/50 rounded-xl p-6 text-center">
+                            <span class="text-3xl mb-3 block">🔍</span>
+                            <h5 class="text-white font-bold mb-2">Root Cause Analysis</h5>
+                            <p class="text-purple-200 text-sm">Quality improvement</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Remaining Services in Compact Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="fade-in">
+                    <div class="bg-gradient-to-br from-orange-900 to-red-900 rounded-2xl p-6 border border-orange-700 h-full">
+                        <div class="text-center">
+                            <span class="text-3xl mb-3 block">⚠️</span>
+                            <h3 class="text-lg font-bold text-white mb-2">Risk Management</h3>
+                            <p class="text-orange-200 text-sm mb-4">ISO 31000 & DoH frameworks</p>
+                            <div class="bg-orange-600 text-white px-4 py-2 rounded-lg text-xs font-semibold">
+                                Simulation Testing
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <div class="bg-gradient-to-br from-teal-900 to-cyan-900 rounded-2xl p-6 border border-teal-700 h-full">
+                        <div class="text-center">
+                            <span class="text-3xl mb-3 block">💰</span>
+                            <h3 class="text-lg font-bold text-white mb-2">Financial Advisory</h3>
+                            <p class="text-teal-200 text-sm mb-4">Revenue cycle optimization</p>
+                            <div class="bg-teal-600 text-white px-4 py-2 rounded-lg text-xs font-semibold">
+                                DRG Readiness
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <div class="bg-gradient-to-br from-indigo-900 to-blue-900 rounded-2xl p-6 border border-indigo-700 h-full">
+                        <div class="text-center">
+                            <span class="text-3xl mb-3 block">🎓</span>
+                            <h3 class="text-lg font-bold text-white mb-2">Training & Capacity</h3>
+                            <p class="text-indigo-200 text-sm mb-4">Clinical leadership programs</p>
+                            <div class="bg-indigo-600 text-white px-4 py-2 rounded-lg text-xs font-semibold">
+                                Simulation-Based
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <div class="bg-gradient-to-br from-emerald-900 to-green-900 rounded-2xl p-6 border border-emerald-700 h-full">
+                        <div class="text-center">
+                            <span class="text-3xl mb-3 block">🌱</span>
+                            <h3 class="text-lg font-bold text-white mb-2">Green Healthcare</h3>
+                            <p class="text-emerald-200 text-sm mb-4">Sustainability transformation</p>
+                            <div class="bg-emerald-600 text-white px-4 py-2 rounded-lg text-xs font-semibold">
+                                UAE Green Hospitals
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <style>
+            @keyframes pulse-line {
+                0% { width: 0%; }
+                50% { width: 100%; }
+                100% { width: 0%; }
+            }
+        </style>
+    </section>
+
+    <!-- Security Consulting & Training Services Section -->
+    <section class="py-20 bg-slate-900 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16 fade-in">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-red-600 to-orange-600 rounded-full mb-6 shadow-lg">
+                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                </div>
+                <h2 class="text-5xl font-heading font-bold text-white mb-6 tracking-tight">🔐 Security Consulting & Training Services</h2>
+                <p class="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">In collaboration with Forte Security Group, Corpolgia offers specialized security training and consulting services aligned with UAE regulations.</p>
+            </div>
+            
+            <!-- A. Security Training Programs -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-bold text-white mb-8 text-center">A. Security Training Programs</h3>
+                <p class="text-lg text-slate-300 mb-8 text-center max-w-4xl mx-auto">Delivered by Forte-certified experts per UAE laws and international standards (ICAO, ISO, TSA, UNI 10459).</p>
+                
+                <!-- Core Training Programs -->
+                <div class="mb-12">
+                    <h4 class="text-2xl font-bold text-white mb-6">Core Training Programs:</h4>
+                    <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-6">
+                        <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                            <h5 class="text-lg font-bold text-white mb-3">Aviation Security</h5>
+                            <p class="text-slate-300 text-sm mb-2">(Airports, Airlines, Ground Staff) – 5 days</p>
+                        </div>
+                        <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                            <h5 class="text-lg font-bold text-white mb-3">Transport Security</h5>
+                            <p class="text-slate-300 text-sm mb-2">(Rail, Public Transport, Freight) – 5 days</p>
+                        </div>
+                        <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                            <h5 class="text-lg font-bold text-white mb-3">Logistics Security</h5>
+                            <p class="text-slate-300 text-sm mb-2">(Warehousing, Ports, Distribution) – 5 days</p>
+                        </div>
+                        <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                            <h5 class="text-lg font-bold text-white mb-3">Retail & Luxury Facility Security</h5>
+                            <p class="text-slate-300 text-sm mb-2">(Malls, Hotels, Hospitals) – 5 days</p>
+                        </div>
+                        <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                            <h5 class="text-lg font-bold text-white mb-3">Events & Museum Security</h5>
+                            <p class="text-slate-300 text-sm mb-2">(Cultural Venues, Expo Sites) – 5 days</p>
+                        </div>
+                        <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                            <h5 class="text-lg font-bold text-white mb-3">Travel Security</h5>
+                            <p class="text-slate-300 text-sm mb-2">(Executives, Diplomats, Journalists) – 5 days</p>
+                        </div>
+                        <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                            <h5 class="text-lg font-bold text-white mb-3">Security Manager Certification</h5>
+                            <p class="text-slate-300 text-sm mb-2">(Senior Security Leaders) – 4 weeks / 5 days intensive</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Special Training Programs -->
+                <div class="mb-12">
+                    <h4 class="text-2xl font-bold text-white mb-6">Special Training Programs:</h4>
+                    <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-6">
+                        <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                            <h5 class="text-lg font-bold text-white mb-3">U.S.T. – Unconventional Security Training</h5>
+                            <p class="text-slate-300 text-sm mb-2">(Cognitive resilience, behavioral security) – 5 days</p>
+                        </div>
+                        <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                            <h5 class="text-lg font-bold text-white mb-3">Women in Security</h5>
+                            <p class="text-slate-300 text-sm mb-2">(Female personnel) – 5 days</p>
+                        </div>
+                        <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                            <h5 class="text-lg font-bold text-white mb-3">SOC Operators Training</h5>
+                            <p class="text-slate-300 text-sm mb-2">(Control Room, Surveillance, Alarm Management) – 2 days</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Delivery & Faculty -->
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                        <h4 class="text-xl font-bold text-white mb-4">Delivery:</h4>
+                        <p class="text-slate-300 text-sm">In-person or blended, conducted in UAE at client premises or partner facilities. Includes assessments, simulations, and customization per UAE licensing needs.</p>
+                    </div>
+                    <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                        <h4 class="text-xl font-bold text-white mb-4">Faculty Highlights:</h4>
+                        <ul class="text-slate-300 text-sm space-y-1">
+                            <li>• Salvatore Forte – Founder, Forte Secur Group (Italy)</li>
+                            <li>• Michele Farinetti – Law Enforcement & Tactical Security Instructor</li>
+                            <li>• Emanuele Silvestri – Certified Instructor (Italian Aviation & Port Authorities)</li>
+                            <li>• Haneen Abu Saif – ICAO-certified AVSEC Instructor (UAE Lead)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- B. Security Consulting Services -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-bold text-white mb-8 text-center">B. Security Consulting Services</h3>
+                <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-6">
+                    <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                        <h4 class="text-lg font-bold text-white mb-3">Security Governance & Risk Management</h4>
+                        <p class="text-slate-300 text-sm">Develop frameworks, ESRM, and threat assessments.</p>
+                    </div>
+                    <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                        <h4 class="text-lg font-bold text-white mb-3">Regulatory Compliance</h4>
+                        <p class="text-slate-300 text-sm">Support for SIRA, MCC, DoH, ADNOC standards.</p>
+                    </div>
+                    <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                        <h4 class="text-lg font-bold text-white mb-3">Critical Infrastructure Protection</h4>
+                        <p class="text-slate-300 text-sm">Security masterplans for ports, hospitals, industrial zones.</p>
+                    </div>
+                    <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                        <h4 class="text-lg font-bold text-white mb-3">Smart Surveillance & SOC Planning</h4>
+                        <p class="text-slate-300 text-sm">Design command-and-control centers, CCTV, AI analytics.</p>
+                    </div>
+                    <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                        <h4 class="text-lg font-bold text-white mb-3">Business Continuity & Crisis Management</h4>
+                        <p class="text-slate-300 text-sm">Security-focused BCP per ISO 22301 & NCEMA 7000.</p>
+                    </div>
+                    <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                        <h4 class="text-lg font-bold text-white mb-3">Security Audits & Penetration Testing</h4>
+                        <p class="text-slate-300 text-sm">Red teaming, insider threat assessments, physical breach simulations.</p>
+                    </div>
+                    <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                        <h4 class="text-lg font-bold text-white mb-3">Cyber-Physical Integration</h4>
+                        <p class="text-slate-300 text-sm">Threat modeling, SIEM integration, digital access control.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Data Center Security Consulting & NIST2-Aligned Training -->
+            <div>
+                <h3 class="text-3xl font-bold text-white mb-8 text-center">🖥️ Data Center Security Consulting & NIST2-Aligned Training</h3>
+                <div class="bg-slate-800 rounded-xl p-8 border border-slate-700 mb-8">
+                    <h4 class="text-xl font-bold text-white mb-4">Objective:</h4>
+                    <p class="text-slate-300 mb-6">Safeguard data center confidentiality, integrity, and availability through standards-based physical, environmental, and cyber-physical security.</p>
+                    
+                    <h4 class="text-xl font-bold text-white mb-4">Security Domains:</h4>
+                    <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-4">
+                        <div class="bg-slate-700 rounded-lg p-4">
+                            <h5 class="font-bold text-white mb-2">Physical Security</h5>
+                            <p class="text-slate-300 text-sm">Access controls, CCTV, biometric authentication.</p>
+                        </div>
+                        <div class="bg-slate-700 rounded-lg p-4">
+                            <h5 class="font-bold text-white mb-2">Environmental Controls</h5>
+                            <p class="text-slate-300 text-sm">Temperature, humidity, fire suppression systems.</p>
+                        </div>
+                        <div class="bg-slate-700 rounded-lg p-4">
+                            <h5 class="font-bold text-white mb-2">Power Continuity</h5>
+                            <p class="text-slate-300 text-sm">UPS, generators for outage prevention.</p>
+                        </div>
+                        <div class="bg-slate-700 rounded-lg p-4">
+                            <h5 class="font-bold text-white mb-2">Network Security</h5>
+                            <p class="text-slate-300 text-sm">Intrusion detection, firewalls, data encryption.</p>
+                        </div>
+                        <div class="bg-slate-700 rounded-lg p-4">
+                            <h5 class="font-bold text-white mb-2">Compliance</h5>
+                            <p class="text-slate-300 text-sm">NIST SP 800-171 (NIST2), ISO, UAE regulations.</p>
+                        </div>
+                        <div class="bg-slate-700 rounded-lg p-4">
+                            <h5 class="font-bold text-white mb-2">Audits</h5>
+                            <p class="text-slate-300 text-sm">Periodic assessments for compliance.</p>
+                        </div>
+                        <div class="bg-slate-700 rounded-lg p-4">
+                            <h5 class="font-bold text-white mb-2">Incident Response</h5>
+                            <p class="text-slate-300 text-sm">Protocols for breach management.</p>
+                        </div>
+                        <div class="bg-slate-700 rounded-lg p-4">
+                            <h5 class="font-bold text-white mb-2">Vendor Risk Management</h5>
+                            <p class="text-slate-300 text-sm">Vetting third-party providers.</p>
+                        </div>
+                        <div class="bg-slate-700 rounded-lg p-4">
+                            <h5 class="font-bold text-white mb-2">Disaster Recovery</h5>
+                            <p class="text-slate-300 text-sm">Backup and recovery protocols.</p>
+                        </div>
+                        <div class="bg-slate-700 rounded-lg p-4">
+                            <h5 class="font-bold text-white mb-2">Security Awareness</h5>
+                            <p class="text-slate-300 text-sm">Staff training on protocols and threats.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                        <h4 class="text-xl font-bold text-white mb-4">Training:</h4>
+                        <p class="text-slate-300 text-sm">5-day NIST2-compliant module covering operations, threat scenarios, crisis communication, risk assessments, and simulations.</p>
+                    </div>
+                    <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+                        <h4 class="text-xl font-bold text-white mb-4">Target Audience:</h4>
+                        <p class="text-slate-300 text-sm">Data center managers, IT security leads, physical security staff, infrastructure vendors, facility directors.</p>
+                        <p class="text-slate-300 text-sm mt-2"><strong>Mode:</strong> In-person or hybrid.</p>
+                    </div>
+                </div>
+            </div>
+        
+        <!-- Security Consulting & Training -->
+        <div class="mb-20 relative">
+            <div class="relative z-10">
+                <div class="text-center mb-8">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg mb-4 border border-slate-600">
+                        <svg class="w-8 h-8 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                         </svg>
                     </div>
-                    <h3 class="font-heading text-2xl font-semibold mb-4">Regulatory Compliance & Advisory</h3>
-                    <p class="text-white mb-6">Helping organizations navigate complex regulatory landscapes while enhancing excellence and protecting intellectual assets1.</p>
-                    <ul class="text-sm text-gray-900 space-y-2">
-                        <li>• Analyze and interpret new codes, laws, and regulations for business impact.</li>
-                        <li>• Conduct regulatory impact studies to assess organizational readiness.</li>
-                        <li>• Evaluate business excellence through benchmarks and performance audits.</li>
-                        <li>• Manage and optimize intellectual property (IP) portfolios effectively.</li>
-                    </ul>
+                    <h3 class="font-heading text-3xl md:text-4xl font-bold text-white mb-4">
+                        Security Consulting & Training
+                    </h3>
+                    <p class="text-slate-300 max-w-3xl mx-auto">
+                        Strategic security solutions with customized training programs for comprehensive organizational protection.
+                    </p>
                 </div>
-              </li>
-              <li class="glide__slide">
-                <div class="service-card bg-white rounded-xl p-10 shadow-lg fade-in min-w-0">
-                    <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
-                        </svg>
+                
+                <!-- Service Cards Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-slate-800 rounded-xl p-6 fade-in border border-slate-700 hover:border-slate-600 transition-all duration-75 hover:shadow-lg">
+                        <div class="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-3 text-white">Risk Assessment</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed">Physical and digital security risk evaluation</p>
                     </div>
-                    <h3 class="font-heading text-2xl font-semibold mb-4">AI, Cybersecurity & Data Governance</h3>
-                    <p class="text-white mb-6">Building trusted, ethical, and secure digital strategies aligned with global standards.</p>
-                    <ul class="text-sm text-gray-900 space-y-2">
-                        <li>• Develop tailored AI strategies aligned with business objectives.</li>
-                        <li>• Design ethical AI governance frameworks and policies.</li>
-                        <li>• Perform cybersecurity gap analyses to identify vulnerabilities.</li>
-                        <li>• Implement ISO 24143-compliant data governance frameworks.</li>
-                    </ul>
-                </div>
-              </li>
-              <li class="glide__slide">
-                <div class="service-card bg-white rounded-xl p-10 shadow-lg fade-in min-w-0">
-                    <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
-                        </svg>
+                    
+                    <div class="bg-slate-800 rounded-xl p-6 fade-in border border-slate-700 hover:border-slate-600 transition-all duration-75 hover:shadow-lg">
+                        <div class="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-3 text-white">Strategy Design</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed">Comprehensive security strategy development</p>
                     </div>
-                    <h3 class="font-heading text-2xl font-semibold mb-4">Environmental & Sustainability Governance</h3>
-                    <p class="text-white mb-6">Driving environmental responsibility and sustainability with measurable social returns.</p>
-                    <ul class="text-sm text-gray-900 space-y-2">
-                        <li>• Conduct environmental impact assessments and compliance audits.</li>
-                        <li>• Perform corporate sustainability maturity and performance assessments.</li>
-                        <li>• Evaluate projects and initiatives through Social Return on Investment (S-ROI).</li>
-                        <li>• Advise on sustainable practices and green initiatives across industries.</li>
-                    </ul>
-                </div>
-              </li>
-              <li class="glide__slide">
-                <div class="service-card bg-white rounded-xl p-10 shadow-lg fade-in min-w-0">
-                    <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
-                        </svg>
+                    
+                    <div class="bg-slate-800 rounded-xl p-6 fade-in border border-slate-700 hover:border-slate-600 transition-all duration-75 hover:shadow-lg">
+                        <div class="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-3 text-white">Training Programs</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed">Customized security training and education</p>
                     </div>
-                    <h3 class="font-heading text-2xl font-semibold mb-4">Competence & Training Management</h3>
-                    <p class="text-white mb-6">Empowering organizations by identifying skill gaps and enhancing workforce capabilities.</p>
-                    <ul class="text-sm text-gray-900 space-y-2">
-                        <li>• Analyze competency gaps across workforce roles and functions.</li>
-                        <li>• Assess organizational training needs aligned with strategic goals.</li>
-                        <li>• Develop competency management systems and career pathways.</li>
-                        <li>• Design and deliver targeted training programs to close skill gaps.</li>
-                    </ul>
-                </div>
-              </li>
-              <li class="glide__slide">
-                <div class="service-card bg-white rounded-xl p-10 shadow-lg fade-in min-w-0">
-                    <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
-                        </svg>
+                    
+                    <div class="bg-slate-800 rounded-xl p-6 fade-in border border-slate-700 hover:border-slate-600 transition-all duration-75 hover:shadow-lg">
+                        <div class="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-3 text-white">Infrastructure Protection</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed">Critical infrastructure security solutions</p>
                     </div>
-                    <h3 class="font-heading text-2xl font-semibold mb-4">ISO Standards & Business Continuity</h3>
-                    <p class="text-white mb-6">Strengthening resilience and operational excellence through globally recognized standards.</p>
-                    <ul class="text-sm text-gray-900 space-y-2">
-                        <li>• Implement and maintain ISO 9001, 14001, and 45001 management systems.</li>
-                        <li>• Establish anti-bribery (ISO 37001) and innovation (ISO 56002) systems.</li>
-                        <li>• Develop NCEMA 7001-aligned emergency management frameworks.</li>
-                        <li>• Support ISO 31001-based business continuity and risk management planning.</li>
-                    </ul>
                 </div>
-              </li>
-              <li class="glide__slide">
-                <div class="service-card bg-white rounded-xl p-10 shadow-lg fade-in min-w-0">
-                    <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
-                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
-                        </svg>
+            </div>
+        </div>
+        
+        <!-- Data Center Security Consulting -->
+        <div class="mb-20 relative">
+            <div class="relative z-10">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold mb-4 text-white">
+                        Data Center Security Consulting
+                    </h3>
+                    <p class="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+                        Advanced technical security solutions for critical infrastructure protection with enterprise-grade monitoring and compliance frameworks.
+                    </p>
+                </div>
+                
+                <!-- Service Cards Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-slate-800 rounded-xl p-6 fade-in border border-slate-700 hover:border-slate-600 transition-all duration-75 hover:shadow-lg">
+                        <div class="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-3 text-white">Physical Security</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed">Environmental and physical security controls</p>
                     </div>
-                    <h3 class="font-heading text-2xl font-semibold mb-4">Security Consulting & Training</h3>
-                    <p class="text-white mb-6">Delivering comprehensive, experience-driven security solutions beyond just technology.</p>
-                    <ul class="text-sm text-gray-900 space-y-2">
-                        <li>• Assess and mitigate security risks across physical and digital domains.</li>
-                        <li>• Design security strategies for public and private sector organizations.</li>
-                        <li>• Deliver customized training programs for personnel at all levels.</li>
-                        <li>• Leverage over 40 years of cross-sector experience in operational security.</li>
-                    </ul>
+                    
+                    <div class="bg-slate-800 rounded-xl p-6 fade-in border border-slate-700 hover:border-slate-600 transition-all duration-75 hover:shadow-lg">
+                        <div class="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-3 text-white">NIST Compliance</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed">NIST SP 800-171 implementation and compliance</p>
+                    </div>
+                    
+                    <div class="bg-slate-800 rounded-xl p-6 fade-in border border-slate-700 hover:border-slate-600 transition-all duration-75 hover:shadow-lg">
+                        <div class="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-3 text-white">Incident Response</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed">Business continuity and incident response planning</p>
+                    </div>
+                    
+                    <div class="bg-slate-800 rounded-xl p-6 fade-in border border-slate-700 hover:border-slate-600 transition-all duration-75 hover:shadow-lg">
+                        <div class="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-3 text-white">Security Training</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed">Awareness training and risk assessments</p>
+                    </div>
                 </div>
-              </li>
-            </ul>
-          </div>
-          <!-- Centered navigation arrows -->
-          <div class="glide__arrows absolute inset-y-0 left-0 right-0 flex items-center justify-between pointer-events-none" data-glide-el="controls" style="z-index:2;">
-            <button class="glide__arrow glide__arrow--left pointer-events-auto bg-white shadow rounded-full w-12 h-12 flex items-center justify-center text-2xl hover:bg-gray-100 transition" data-glide-dir="<" aria-label="Previous">
-              &#8592;
-            </button>
-            <button class="glide__arrow glide__arrow--right pointer-events-auto bg-white shadow rounded-full w-12 h-12 flex items-center justify-center text-2xl hover:bg-gray-100 transition" data-glide-dir=">" aria-label="Next">
-              &#8594;
-            </button>
-          </div>
+            </div>
+        </div>
+        
+        <!-- Advanced Security Training -->
+        <div class="relative">
+            <!-- Military Grid Background -->
+
+            
+            <div class="relative z-10">
+                <div class="text-center mb-12">
+                    <h3 class="font-heading text-4xl font-bold text-white mb-4">
+                        Advanced Security Training
+                    </h3>
+                    <p class="text-slate-300 max-w-3xl mx-auto text-lg">
+                        Specialized training programs including SOC operations, surveillance, and security management with international certification.
+                    </p>
+                </div>
+                
+                <!-- Service Cards Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-slate-800 rounded-xl p-6 fade-in border border-slate-700 hover:border-slate-600 transition-all duration-75 hover:shadow-lg">
+                        <div class="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-3 text-white">SOC Operations</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed">Security Operations Center training and control room management</p>
+                    </div>
+                    
+                    <div class="bg-slate-800 rounded-xl p-6 fade-in border border-slate-700 hover:border-slate-600 transition-all duration-75 hover:shadow-lg">
+                        <div class="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-3 text-white">Surveillance Systems</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed">Advanced surveillance and alarm management systems</p>
+                    </div>
+                    
+                    <div class="bg-slate-800 rounded-xl p-6 fade-in border border-slate-700 hover:border-slate-600 transition-all duration-75 hover:shadow-lg">
+                        <div class="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-3 text-white">ICAO Standards</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed">International Civil Aviation Organization compliance training</p>
+                    </div>
+                    
+                    <div class="bg-slate-800 rounded-xl p-6 fade-in border border-slate-700 hover:border-slate-600 transition-all duration-75 hover:shadow-lg">
+                        <div class="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-3 text-white">UAE Licensing</h4>
+                        <p class="text-slate-300 text-sm leading-relaxed">Customized programs aligned with UAE licensing requirements</p>
+                    </div>
+                </div>
+            </div>
         </div>
       </div>
     </section>
+
+
 
     <!-- About Section -->
     <section id="about" class="w-full bg-black/70 py-12">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16 fade-in">
                 <h2 class="font-heading text-4xl md:text-5xl font-bold text-gray-200 mb-6">
-                    About Corpolgia
+                    About Us
                 </h2>
-                <p class="text-xl text-white max-w-3xl mx-auto">
-                    Built on expertise, integrity, collaboration, innovation, and sustainability
+                <p class="text-xl text-white max-w-4xl mx-auto leading-relaxed">
+                    Corpolgia Consulting, a key division of La Stella Group, leverages a global network of corporate experts, analysts, engineers, professors, and strategists to enhance client success in private and public sectors. La Stella Group includes subsidiaries like La Stella Training, La Stella Italy, La Stella Gulf (SA), and Corpolgia Consulting.
                 </p>
             </div>
             
@@ -432,8 +1680,8 @@
                 <div class="fade-in">
                     <h3 class="font-heading text-3xl font-bold mb-6">Our Mission</h3>
                     <p class="text-gray-500 text-lg leading-relaxed mb-6 bg-black/50 p-4 rounded-lg">
-                        To transform corporate governance and compliance from regulatory burden into strategic advantage, 
-                        empowering organizations to achieve sustainable growth while maintaining the highest standards of integrity.
+                        As a vital division within La Stella Group, we transform governance challenges into strategic opportunities, 
+                        leveraging our international network of experts to deliver comprehensive consulting solutions across multiple sectors.
                     </p>
                     <div class="grid grid-cols-2 gap-4">
                         <div style="background-color: #e7d8bd;" class="text-center p-4 bg-50 rounded-lg">
@@ -453,36 +1701,36 @@
                         <div class="flex items-start space-x-3">
                             <div style="background-color: #2e4254;" class="w-6 h-6 bg-600 rounded-full flex-shrink-0 mt-1"></div>
                             <div>
-                                <h4 class="font-semibold">Expertise</h4>
-                                <p class="text-gray-500 text-sm">Deep industry knowledge and technical proficiency</p>
+                                <h4 class="font-semibold">Global Expertise</h4>
+                                <p class="text-gray-500 text-sm">International network of corporate experts and strategists</p>
                             </div>
                         </div>
                         <div class="flex items-start space-x-3">
                             <div style="background-color: #839eb6;" class="w-6 h-6 bg-600 rounded-full flex-shrink-0 mt-1"></div>
                             <div>
-                                <h4 class="font-semibold">Integrity</h4>
-                                <p class="text-gray-500 text-sm">Unwavering commitment to ethical practices</p>
+                                <h4 class="font-semibold">Comprehensive Solutions</h4>
+                                <p class="text-gray-500 text-sm">Multi-sector consulting across governance, sustainability, and security</p>
                             </div>
                         </div>
                         <div class="flex items-start space-x-3">
                             <div style="background-color: #a1a1a1;" class="w-6 h-6 bg-600 rounded-full flex-shrink-0 mt-1"></div>
                             <div>
-                                <h4 class="font-semibold">Collaboration</h4>
-                                <p class="text-gray-500 text-sm">Partnership approach with all stakeholders</p>
+                                <h4 class="font-semibold">Strategic Partnership</h4>
+                                <p class="text-gray-500 text-sm">Collaboration with leading organizations like Forte Security Group</p>
                             </div>
                         </div>
                         <div class="flex items-start space-x-3">
                             <div style="background-color: #e7c281;" class="w-6 h-6 bg-600 rounded-full flex-shrink-0 mt-1"></div>
                             <div>
-                                <h4 class="font-semibold">Innovation</h4>
-                                <p class="text-gray-500 text-sm">Cutting-edge solutions for complex challenges</p>
+                                <h4 class="font-semibold">Innovation Excellence</h4>
+                                <p class="text-gray-500 text-sm">Cutting-edge methodologies and international best practices</p>
                             </div>
                         </div>
                         <div class="flex items-start space-x-3">
                             <div style="background-color: #ab7518;" class="w-6 h-6 bg-600 rounded-full flex-shrink-0 mt-1"></div>
                             <div>
-                                <h4 class="font-semibold">Sustainability</h4>
-                                <p class="text-gray-500 text-sm">Long-term value creation for all stakeholders</p>
+                                <h4 class="font-semibold">Measurable Impact</h4>
+                                <p class="text-gray-500 text-sm">Results-driven approach with quantifiable outcomes</p>
                             </div>
                         </div>
                     </div>
@@ -495,7 +1743,7 @@
                 <div class="grid md:grid-cols-3 gap-10">
                     <div class="team-card text-center">
                         <div class="w-32 h-32 bg-gradient-to-br from-gray-400 to-black-600 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-2xl font-bold">
-                            <img src="/corpolgia/assets1/team1.png" alt="Rashed" class="rounded-full w-full h-full object-cover">
+                            <img src="assets/team1.png" alt="Rashed" class="rounded-full w-full h-full object-cover">
                         </div>
                         <h4 class="font-heading text-xl font-semibold mb-2">Eng. Rashed Alhebsi</h4>
                         <p class="text-white mb-4">Head of Governance</p>
@@ -504,7 +1752,7 @@
                     
                     <div class="team-card text-center">
                         <div class="w-32 h-32 bg-gradient-to-br from-gray-400 to-black-600 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-2xl font-bold">
-                            <img src="/corpolgia/assets1/team3.png" alt="Rashed" class="rounded-full w-full h-full object-cover">
+                            <img src="assets/team3.png" alt="Rashed" class="rounded-full w-full h-full object-cover">
                         </div>
                         <h4 class="font-heading text-xl font-semibold mb-2">Dr. Effat Mostafa</h4>
                         <p class="text-white mb-4">Business Excellence Expert</p>
@@ -513,7 +1761,7 @@
                     
                     <div class="team-card text-center">
                         <div class="w-32 h-32 bg-gradient-to-br from-gray-400 to-black-600 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-2xl font-bold">
-                            <img src="/corpolgia/assets1/team2.png" alt="Rashed" class="rounded-full w-full h-full object-cover">
+                            <img src="assets/team2.png" alt="Rashed" class="rounded-full w-full h-full object-cover">
                         </div>
                         <h4 class="font-heading text-xl font-semibold mb-2">Dr. Giovanni Lombardo</h4>
                         <p class="text-white mb-4">Head of Social RoI</p>
@@ -522,7 +1770,7 @@
 
                     <div class="team-card text-center">
                         <div class="w-32 h-32 bg-gradient-to-br from-gray-400 to-black-600 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-2xl font-bold">
-                            <img src="/corpolgia/assets1/team1.png" alt="Rashed" class="rounded-full w-full h-full object-cover">
+                            <img src="assets/team1.png" alt="Rashed" class="rounded-full w-full h-full object-cover">
                         </div>
                         <h4 class="font-heading text-xl font-semibold mb-2">Eng. Omar Alshehi</h4>
                         <p class="text-white mb-4">Head of Security Consulting & Training</p>
@@ -531,7 +1779,7 @@
 
                     <div class="team-card text-center">
                         <div class="w-32 h-32 bg-gradient-to-br from-gray-400 to-black-600 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-2xl font-bold">
-                            <img src="/corpolgia/assets1/team5.png" alt="Rashed" class="rounded-full w-full h-full object-cover">
+                            <img src="assets/team5.png" alt="Rashed" class="rounded-full w-full h-full object-cover">
                         </div>
                         <h4 class="font-heading text-xl font-semibold mb-2">Giovanna Melfi</h4>
                         <p class="text-white mb-4">Head of Transformation</p>
@@ -540,7 +1788,7 @@
 
                     <div class="team-card text-center">
                         <div class="w-32 h-32 bg-gradient-to-br from-gray-400 to-black-600 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-2xl font-bold">
-                            <img src="/corpolgia/assets1/team4.png" alt="Rashed" class="rounded-full w-full h-full object-cover">
+                            <img src="assets/team4.png" alt="Rashed" class="rounded-full w-full h-full object-cover">
                         </div>
                         <h4 class="font-heading text-xl font-semibold mb-2">Peter Barlow</h4>
                         <p class="text-white mb-4">Governance Expert</p>
@@ -598,55 +1846,55 @@
     </section>
 
     <!-- Blog Section -->
-    <section id="blog" class="py-20 bg-white">
+    <section id="blog" class="py-20 bg-slate-900">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16 fade-in">
-                <h2 class="font-heading text-4xl md:text-5xl font-bold text-gray-200 mb-6">
+                <h2 class="font-heading text-4xl md:text-5xl font-bold text-white mb-6">
                     Latest Insights
                 </h2>
-                <p class="text-xl text-white max-w-3xl mx-auto">
+                <p class="text-xl text-slate-300 max-w-3xl mx-auto">
                     Stay informed on governance, AI regulations, and industry trends
                 </p>
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
                 <article class="fade-in">
-                    <div class="bg-gradient-to-br from-blue-500 to-blue-600 h-48 rounded-lg mb-6 flex items-center justify-center">
-                        <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="bg-slate-800 h-48 rounded-lg mb-6 flex items-center justify-center border border-slate-700">
+                        <svg class="w-16 h-16 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                         </svg>
                     </div>
-                    <h3 class="font-heading text-xl font-semibold mb-3">GDPR in 2025: New Opportunities for Business Growth</h3>
-                    <p class="text-white mb-4">Discover how forward-thinking companies are turning data protection regulations into competitive advantages...</p>
-                    <div class="flex items-center justify-between text-sm text-gray-500">
+                    <h3 class="font-heading text-xl font-semibold mb-3 text-white">GDPR in 2025: New Opportunities for Business Growth</h3>
+                    <p class="text-slate-300 mb-4">Discover how forward-thinking companies are turning data protection regulations into competitive advantages...</p>
+                    <div class="flex items-center justify-between text-sm text-slate-400">
                         <span>Jan 15, 2025</span>
                         <span>5 min read</span>
                     </div>
                 </article>
                 
                 <article class="fade-in">
-                    <div class="bg-gradient-to-br from-green-500 to-green-600 h-48 rounded-lg mb-6 flex items-center justify-center">
-                        <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="bg-slate-800 h-48 rounded-lg mb-6 flex items-center justify-center border border-slate-700">
+                        <svg class="w-16 h-16 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
                     </div>
-                    <h3 class="font-heading text-xl font-semibold mb-3">Energy Sector Governance: Navigating the Green Transition</h3>
-                    <p class="text-white mb-4">Essential governance frameworks for energy companies transitioning to sustainable operations...</p>
-                    <div class="flex items-center justify-between text-sm text-gray-500">
+                    <h3 class="font-heading text-xl font-semibold mb-3 text-white">Energy Sector Governance: Navigating the Green Transition</h3>
+                    <p class="text-slate-300 mb-4">Essential governance frameworks for energy companies transitioning to sustainable operations...</p>
+                    <div class="flex items-center justify-between text-sm text-slate-400">
                         <span>Jan 12, 2025</span>
                         <span>7 min read</span>
                     </div>
                 </article>
                 
                 <article class="fade-in">
-                    <div class="bg-gradient-to-br from-purple-500 to-purple-600 h-48 rounded-lg mb-6 flex items-center justify-center">
-                        <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="bg-slate-800 h-48 rounded-lg mb-6 flex items-center justify-center border border-slate-700">
+                        <svg class="w-16 h-16 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
                         </svg>
                     </div>
-                    <h3 class="font-heading text-xl font-semibold mb-3">AI Governance: Preparing for Regulatory Changes</h3>
-                    <p class="text-white mb-4">How AI companies can build robust governance frameworks ahead of emerging regulations...</p>
-                    <div class="flex items-center justify-between text-sm text-gray-500">
+                    <h3 class="font-heading text-xl font-semibold mb-3 text-white">AI Governance: Preparing for Regulatory Changes</h3>
+                    <p class="text-slate-300 mb-4">How AI companies can build robust governance frameworks ahead of emerging regulations...</p>
+                    <div class="flex items-center justify-between text-sm text-slate-400">
                         <span>Jan 10, 2025</span>
                         <span>6 min read</span>
                     </div>
@@ -656,13 +1904,13 @@
     </section>
 
     <!-- Service Finder Tool -->
-    <section class="py-20 bg-blue-50">
+    <section class="py-20 bg-slate-800">
         <div class="max-w-4xl mx-auto px-4">
             <div class="text-center mb-12 fade-in">
-                <h2 class="font-heading text-4xl font-bold text-gray-200 mb-6">
+                <h2 class="font-heading text-4xl font-bold text-white mb-6">
                     Service Finder Tool
                 </h2>
-                <p class="text-xl text-white">
+                <p class="text-xl text-slate-300">
                     Get personalized service recommendations based on your industry and needs
                 </p>
             </div>
@@ -817,9 +2065,11 @@
                         <input type="text" placeholder="Company" class="w-full p-3 bg-white border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400">
                         <select class="w-full p-3 bg-white border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white">
                             <option value="">Select Service Interest</option>
-                            <option value="gdpr">GDPR & Data Management</option>
-                            <option value="asset">Asset Management</option>
-                            <option value="iso">ISO Compliance</option>
+                            <option value="governance">Governance Consulting Services</option>
+                            <option value="sustainability">Sustainability Consulting Services</option>
+                            <option value="healthcare">Healthcare Consulting Services</option>
+                            <option value="security">Security Consulting & Training</option>
+                            <option value="datacenter">Data Center Security Consulting</option>
                             <option value="consultation">General Consultation</option>
                         </select>
                         <textarea rows="4" placeholder="Message" class="w-full p-3 bg-white border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 resize-none"></textarea>
@@ -838,10 +2088,10 @@
             <div class="grid md:grid-cols-4 gap-10">
                 <div>
                     <div class="font-heading font-bold text-2xl text-white mb-4">
-                        <img src="/corpolgia/assets1/logo.svg" alt="Corpolgia Logo" class="h-10 inline-block mr-8">
+                        <img src="assets/logo.svg" alt="Corpolgia Logo" class="h-10 inline-block mr-8">
                     </div>
                     <p class="text-sm mb-4">
-                        Transforming corporate governance and compliance into strategic advantages for sustainable growth.
+                        A vital division within La Stella Group, transforming governance challenges into strategic opportunities through comprehensive consulting solutions.
                     </p>
                     <div class="text-sm">
                         <p>Abu Dhabi, United Arab Emirates</p>
@@ -852,10 +2102,10 @@
                 <div>
                     <h4 class="font-semibold text-white mb-4">Services</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="#" class="hover:text-white transition-colors">GDPR Consulting</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Asset Management</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">ISO Compliance</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Risk Management</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Governance Consulting</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Sustainability Services</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Healthcare Consulting</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Security Training</a></li>
                     </ul>
                 </div>
                 
@@ -1017,18 +2267,20 @@
 
 
     <script>
-        // Smooth scrolling and animations
+        // Enhanced smooth scrolling and animations
         document.addEventListener('DOMContentLoaded', function() {
-            // Fade in animation on scroll
+            // Enhanced fade in animation on scroll with stagger effect
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
             };
             
             const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
+                entries.forEach((entry, index) => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 100); // Stagger animation
                     }
                 });
             }, observerOptions);
@@ -1037,14 +2289,98 @@
                 observer.observe(el);
             });
             
-            // Navbar scroll effect
-            window.addEventListener('scroll', function() {
+            // Enhanced navbar scroll effect with parallax
+            let ticking = false;
+            function updateNavbar() {
                 const navbar = document.querySelector('.navbar');
-                if (window.scrollY > 50) {
+                const scrollY = window.scrollY;
+                
+                if (scrollY > 50) {
                     navbar.classList.add('scrolled');
                 } else {
                     navbar.classList.remove('scrolled');
                 }
+                
+                // Parallax effect for hero background
+                const heroVideo = document.querySelector('#heroVideo');
+                if (heroVideo && scrollY < window.innerHeight) {
+                    heroVideo.style.transform = `translateY(${scrollY * 0.5}px)`;
+                }
+                
+                ticking = false;
+            }
+            
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    requestAnimationFrame(updateNavbar);
+                    ticking = true;
+                }
+            });
+            
+            // Add hover effects to service cards
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+            
+            // Add magnetic effect to buttons
+            document.querySelectorAll('.btn-primary').forEach(btn => {
+                btn.addEventListener('mousemove', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    
+                    this.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px) scale(1.05)`;
+                });
+                
+                btn.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translate(0, 0) scale(1)';
+                });
+            });
+            
+            // Interactive tabs functionality
+            document.querySelectorAll('.service-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const targetTab = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all tabs
+                    document.querySelectorAll('.service-tab').forEach(t => {
+                        t.classList.remove('active', 'bg-gradient-to-r', 'from-cyan-600', 'to-blue-600', 'text-white');
+                        t.classList.add('bg-slate-700', 'text-slate-300');
+                    });
+                    
+                    // Hide all panels
+                    document.querySelectorAll('.tab-panel').forEach(panel => {
+                        panel.classList.remove('active');
+                        panel.classList.add('hidden');
+                    });
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active', 'bg-gradient-to-r', 'from-cyan-600', 'to-blue-600', 'text-white');
+                    this.classList.remove('bg-slate-700', 'text-slate-300');
+                    
+                    // Show corresponding panel with fade effect
+                    const targetPanel = document.getElementById(targetTab);
+                    if (targetPanel) {
+                        targetPanel.classList.add('active');
+                        targetPanel.classList.remove('hidden');
+                        
+                        // Add fade-in animation
+                        targetPanel.style.opacity = '0';
+                        targetPanel.style.transform = 'translateY(20px)';
+                        
+                        setTimeout(() => {
+                            targetPanel.style.transition = 'all 0.3s ease';
+                            targetPanel.style.opacity = '1';
+                            targetPanel.style.transform = 'translateY(0)';
+                        }, 10);
+                    }
+                });
             });
             
             // Service Finder Tool
@@ -1107,23 +2443,6 @@
                 recommendations.scrollIntoView({ behavior: 'smooth' });
             });
             
-            // Carousel logic
-    const carousel = document.getElementById('servicesCarousel');
-    const totalCards = carousel.children.length;
-    const visibleCards = 3;
-    let currentIndex = 0;
-
-    function updateCarousel() {
-        const translateX = -(currentIndex * (100 / visibleCards));
-        carousel.style.transform = `translateX(${translateX}%)`;
-    }
-
-    setInterval(() => {
-        currentIndex = (currentIndex + 1) % (totalCards - visibleCards + 1);
-        updateCarousel();
-    }, 4000); // Change slide every 4 seconds
-
-    updateCarousel();
         });
         
         // Mobile menu toggle
@@ -1152,62 +2471,7 @@
             });
         });
     </script>
-    <!-- Glide.js JS -->
-<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const glide = new Glide('#servicesGlide', {
-      type: 'carousel',
-      perView: 2,
-      gap: 70,
-      focusAt: 'center',
-      animationDuration: 700,
-      rewind: false,
-      bound: false,
-      breakpoints: {
-        1024: { perView: 1 },
-        640: { perView: 1 }
-      }
-    });
 
-    glide.mount();
-
-    let direction = 1;
-    let intervalId;
-    const glideEl = document.getElementById('servicesGlide');
-
-    function startAuto() {
-      if (intervalId) return;
-      intervalId = setInterval(() => {
-        const currentIndex = glide.index;
-        const slidesCount = glide._c.Html.slides.length;
-        const maxIndex = slidesCount - glide.settings.perView;
-
-        if (direction === 1 && currentIndex > maxIndex) {
-          direction = -1;
-          glide.go('<');
-        } else if (direction === -1 && currentIndex <= 0) {
-          direction = 1;
-          glide.go('>');
-        } else if (direction === 1) {
-          glide.go('>');
-        } else {
-          glide.go('<');
-        }
-      }, 2000);
-    }
-
-    function stopAuto() {
-      clearInterval(intervalId);
-      intervalId = null;
-    }
-
-    glideEl.addEventListener('mouseenter', stopAuto);
-    glideEl.addEventListener('mouseleave', startAuto);
-
-    startAuto();
-  });
-</script>
 
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'95a0b1de8076553c',t:'MTc1MTY1MzgzNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
